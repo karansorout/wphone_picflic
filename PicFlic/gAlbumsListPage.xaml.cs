@@ -25,14 +25,12 @@ namespace PicFlic
         public gAlbumsListPage()
         {
             InitializeComponent();
-            MessageBox.Show("Welcome to Album List page");
+            //MessageBox.Show("Welcome to Album List page");
             var gtoken = PhoneApplicationService.Current.State["gtoken"];
             var username = PhoneApplicationService.Current.State["username"];
             global.gtoken = gtoken.ToString();
             global.username = username.ToString();
-
-            //MessageBox.Show("11.global.gtoken on new page=" + global.gtoken);
-            //MessageBox.Show("12.global.username on new page=" + global.username);
+            //p2_albumListPageName.Text = String.Format("PicFlic > "+global.username+"'s Albums:");
 
             fetch_galbumslist();
         }
@@ -40,7 +38,6 @@ namespace PicFlic
                 //fetch the list of albums
                 public void fetch_galbumslist()
                 {
-                    //MessageBox.Show("before fetching glist");
                     WebClient webClient = new WebClient();
                     webClient.Headers[HttpRequestHeader.Authorization] = "GoogleLogin auth=" + global.gtoken;
                     Uri uri = new Uri(String.Format("http://picasaweb.google.com/data/feed/api/user/{0}?alt=json", global.username), UriKind.Absolute);
@@ -75,6 +72,7 @@ namespace PicFlic
                             // get album counts
                             IList entries = (IList)feed["entry"];
 
+                            global.galbumlist.Clear();
 
                             // Find album details
                             for (int i = 0; i < entries.Count; i++)

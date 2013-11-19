@@ -22,13 +22,10 @@ namespace PicFlic
         public string gtoken { get; set; }//app google auth token
         public string username { get; set; }
         public string password { get; set; }
-        //private bool rememberlastcoice = true;
-
         //p2 vars
         public AlbumsList galbumlist = new AlbumsList();
         public int selectedAlbumIndex;
-        public string selectedAlbumName;
-
+        //public string selectedAlbumName;
         //p3 vars
         public AlbumImages galbumImages = new AlbumImages();
         public int selectedImageIndex;

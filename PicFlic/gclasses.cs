@@ -15,16 +15,21 @@ using System.Collections.ObjectModel;
 
 namespace PicFlic
 {
-   public class Album
-    {
+
+    public class AlbumsList : ObservableCollection<Album> {
+    }
+
+   public class Album {
         public string title { get; set; }
         public string published { get; set; }
         public string href { get; set; }
         public string thumbnail { get; set; }
     }
 
-    public class AlbumImage
-    {
+    public class AlbumImages : ObservableCollection<AlbumImage> {
+   }
+
+    public class AlbumImage {
         public string title { get; set; }
         public string content { get; set; }
         public string width { get; set; }
@@ -32,13 +37,5 @@ namespace PicFlic
         public string size { get; set; }
         public string thumbnail { get; set; }
     }
-
-    public class AlbumImages : ObservableCollection<AlbumImage> {
-    }
-
-    public class AlbumsList : ObservableCollection<Album> {
-    }
-
-
 
 }

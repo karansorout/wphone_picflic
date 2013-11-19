@@ -26,14 +26,12 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Text="PicFlic > Albums:" Name="p2_albumListPageName" Style="{StaticResource PhoneTextNormalStyle}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <!--    <helpers:ProgressBarWithText Text="Loading..." Foreground="White" ShowProgress="{Binding ElementName=albumsPage, Path=ShowProgress}" /> -->
-            <ListBox x:Name="AlbumsListBox" 
+           <ListBox x:Name="AlbumsListBox" 
                      toolkit:TiltEffect.IsTiltEnabled="True"
                      SelectionChanged="AlbumsListBox_SelectionChanged">
                 <ListBox.ItemsPanel>

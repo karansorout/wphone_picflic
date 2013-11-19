@@ -18,53 +18,48 @@ namespace PicFlic
         public gAlbumPage()
         {
             InitializeComponent();
-            MessageBox.Show("welcome to Album Images page");
-            MessageBox.Show("global.selectedAlbumIndex=" + global.selectedAlbumIndex);
-            int selected_galbumIndex = Convert.ToInt32(global.selectedAlbumIndex);
+            
+            //set page name, indicating current location
+            p3_albumimagespage_name.Text = String.Format("PicFlic>Albums>" + global.galbumlist[global.selectedAlbumIndex].title);
 
-            //IDictionary<string, string> parameters = this.NavigationContext.QueryString;
-            //if (parameters.ContainsKey("global.selectedAlbumIndex"))
-            //{
-                p3_albumimagespage_name.Text = global.galbumlist[global.selectedAlbumIndex].title;
-                MessageBox.Show("global.galbumlist[global.selectedAlbumIndex].title=" + global.galbumlist[global.selectedAlbumIndex].title);
-                //int selectedIndex = Int32.Parse(global.galbumlist[global.selectedAlbumIndex]);
-                GetImages(selected_galbumIndex);
-            //}
+            //int selectedAlbumIndex = Convert.ToInt32(global.selectedAlbumIndex);
+            //string href_new = global.galbumlist[global.selectedAlbumIndex].href;
+            
         }
 
-/*
-    // Navigate to this page
+        // Navigate to this page
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            
-            // We are coming back from ImagesPage
+
+            // Phone backbutton press
             if (e.NavigationMode == System.Windows.Navigation.NavigationMode.Back)
             {
-                AlbumImagesListBox.ItemsSource = app.albumImages;
-                PageTitle.Text = app.albums[global.selectedAlbumIndex].title;
+                //use existing images list, no fresh download
+                AlbumImagesListBox.ItemsSource = global.galbumImages;
                 AlbumImagesListBox.SelectedIndex = -1;
                 return;
             }
 
-            // We are coming from MainPage, start loading album images
+            // forward navigation from login page
             IDictionary<string, string> parameters = this.NavigationContext.QueryString;
-            if (parameters.ContainsKey("SelectedIndex"))
+            if (global.selectedAlbumIndex >= 0)
             {
-                int selectedIndex = Int32.Parse(parameters["SelectedIndex"]);
-                PageTitle.Text = app.albums[selectedIndex].title;
-                GetImages(selectedIndex);
+                //Get all images & properties of a google album
+                GetImages();
+        
             }
- */
+        }
+
+
         // Start loading images from Google
-        private void GetImages(int selected_galbumIndex)
+        private void GetImages()
         {
-            // Show loading... animation
-            //ShowProgress = true;
             WebClient webClient = new WebClient();
+            //int selected_galbumIndex = Convert.ToInt32(global.selectedAlbumIndex);
             string auth = "GoogleLogin auth=" + global.gtoken;
             webClient.Headers[HttpRequestHeader.Authorization] = auth;
-            Uri uri = new Uri(global.galbumlist[selected_galbumIndex].href, UriKind.Absolute);
+            Uri uri = new Uri(global.galbumlist[global.selectedAlbumIndex].href, UriKind.Absolute);
             webClient.DownloadStringCompleted += new DownloadStringCompletedEventHandler(ImagesDownloaded);
             webClient.DownloadStringAsync(uri);
         }
@@ -89,6 +84,7 @@ namespace PicFlic
                     // Entries List
                     var entries = (IList)feed["entry"];
                     // clear previous images from albumImages
+                    
                     global.galbumImages.Clear();
                     // Find image details from entries
                     for (int i = 0; i < entries.Count; i++)
@@ -144,7 +140,7 @@ namespace PicFlic
         //dummy handling of selection change
         private void AlbumImagesListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            MessageBox.Show("Inside Albumimageslistbox_selectionchanged loop on 'Album Images' Page");
+            //MessageBox.Show("Inside Albumimageslistbox_selectionchanged loop on 'Album Images' Page");
             //if (AlbumImagesListBox.SelectedIndex == -1) return;
             global.selectedImageIndex = AlbumImagesListBox.SelectedIndex;
             this.NavigationService.Navigate(new Uri("/gAlbumImagesPage.xaml?SelectedImageIndex=" + global.selectedImageIndex, UriKind.Relative));
