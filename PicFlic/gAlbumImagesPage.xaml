@@ -30,7 +30,18 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <Image x:Name="image" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Image x:Name="bitmapimage" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                <toolkit:GestureService.GestureListener>
+                <toolkit:GestureListener
+                PinchStarted="OnPinchStarted"
+                PinchDelta="OnPinchDelta"/>
+                </toolkit:GestureService.GestureListener>
+                <Image.RenderTransform>
+                <CompositeTransform
+                ScaleX="1" ScaleY="1"
+                TranslateX="0" TranslateY="0"/>
+                </Image.RenderTransform>
+            </Image>
             <TextBlock Height="30" 
                        Margin="0,0,0,0"
                        HorizontalAlignment="Left" 
@@ -40,15 +51,4 @@
                        Width="692" />
         </Grid>
     </Grid>
-    <!--Sample code showing usage of ApplicationBar-->
-    <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
-            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Upload Pic" Click="p4_appbar_uploadpic"/>
-            <!--<shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Button 2"/>
-            <shell:ApplicationBar.MenuItems>
-                <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
-                <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
-            </shell:ApplicationBar.MenuItems>-->
-        </shell:ApplicationBar>
-    </phone:PhoneApplicationPage.ApplicationBar>
 </phone:PhoneApplicationPage>

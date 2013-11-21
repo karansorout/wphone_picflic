@@ -10,28 +10,25 @@ using System.Collections.Generic;
 using System.Windows.Media.Imaging;
 using System.IO;
 using Microsoft.Phone.Tasks;
+using System.Windows.Media;
 
 namespace PicFlic
 {
     public partial class gAlbumImagesPage : PhoneApplicationPage
     {
-        //load current state of global variables
-        private App global = App.Current as App;
-        string img_href = string.Empty;
-        //var for holding bitmapimage
-        private BitmapImage bitmapImage;
-        // GestureListener from ToolKit
-        private GestureListener gestureListener;
-        //public override long ContentLength { get; set; }
+        private App global = App.Current as App;//load current state of global variables
+        private BitmapImage bitmapImage;//var for holding bitmapimage
+        private GestureListener gestureListener;// GestureListener from ToolKit
+        double initialScale = 1d;
 
         public gAlbumImagesPage()
         {
             InitializeComponent();
-            
-            // Initialize GestureListener
-            gestureListener = GestureService.GetGestureListener(ContentPanel);
-            // Handle Dragging (to show next or previous image from Album)
-            gestureListener.DragCompleted += new EventHandler<DragCompletedGestureEventArgs>(gestureListener_DragCompleted);
+
+            gestureListener = GestureService.GetGestureListener(ContentPanel);// Initialize GestureListener
+
+            gestureListener.DragCompleted += new EventHandler<DragCompletedGestureEventArgs>(gestureListener_DragCompleted);// Handle Dragging (to show next or previous image from Album)
+
         }
 
         // Navigate to this page
@@ -40,11 +37,8 @@ namespace PicFlic
             base.OnNavigatedTo(e);
 
             // Find selected image index from parameters
-            //IDictionary<string, string> parameters = this.NavigationContext.QueryString;
             if (global.galbumlist[global.selectedAlbumIndex].title != null)
             {
-                //int selected_imageIndex = Convert.ToInt32(global.selectedImageIndex);
-                img_href = global.galbumlist[global.selectedAlbumIndex].href;
                 // Load image from Google
                 LoadImage();
             }
@@ -95,7 +89,7 @@ namespace PicFlic
             // Handle loading (hide Loading... animation)
             bitmapImage.DownloadProgress += new EventHandler<DownloadProgressEventArgs>(bitmapImage_Results);
             // Loaded Image is image source in XAML
-            image.Source = bitmapImage;
+            bitmapimage.Source = bitmapImage;
         }
 
         // Image is loaded from Google
@@ -110,79 +104,30 @@ namespace PicFlic
 
         }
 
-        
-        
-        
-        
-        //handling upload pic
-        private void p4_appbar_uploadpic(object sender, EventArgs e)
-        {
-            //MessageBox.Show("p4_appbar_uploadpic works!");
-            
-            PhotoChooserTask task = new PhotoChooserTask();
-            task.Completed += task_Completed;
-            task.Show();
-        }
- 
-        private void task_Completed(object sender, PhotoResult e)
+        private void OnPinchStarted(object s, PinchStartedGestureEventArgs e)
         {
 
-            if (e.TaskResult == TaskResult.OK)
-            {
-
-                MessageBox.Show(e.ChosenPhoto.Length.ToString());
-                UploadPhotoNewMethod(e.ChosenPhoto);
-
-            }
-
+            initialScale = ((CompositeTransform)bitmapimage.RenderTransform).ScaleX;
         }
 
-
-        //upload image
-        private void UploadPhotoNewMethod(Stream stream)
+        private void OnPinchDelta(object s, PinchGestureEventArgs e)
         {
-            const int BLOCK_SIZE = 4096;
-            img_href.Replace("entry", "feed");
-            //Uri uri = new Uri("http://picasaweb.google.com/data/feed/api/user/default/albumid/default", UriKind.Absolute);
-            Uri uri = new Uri(img_href, UriKind.Absolute);
 
-            WebClient wc = new WebClient();
-            string AuthToken = global.gtoken;
-            wc.Headers[HttpRequestHeader.Authorization] = "GoogleLogin auth=" + AuthToken;
-            wc.Headers[HttpRequestHeader.ContentLength] = stream.Length.ToString();
-            wc.Headers[HttpRequestHeader.ContentType] = "image/jpeg";
-            wc.AllowReadStreamBuffering = true;
-            wc.AllowWriteStreamBuffering =true;
-            // what to do when write stream is open
-            wc.OpenWriteCompleted += (s, args) =>
-            {
-                using (BinaryReader br = new BinaryReader(stream))
-                {
-                    using (BinaryWriter bw = new BinaryWriter(args.Result))
-                    {
-                        long bCount = 0;
-                        long fileSize = stream.Length;
-                        byte[] bytes = new byte[BLOCK_SIZE];
-                        do
-                        {
-                            bytes = br.ReadBytes(BLOCK_SIZE);
-                            bCount += bytes.Length;
-                            bw.Write(bytes);
-                        }
-                        while (bCount < fileSize);
-                    }
-                }
-            };
+            var finger1 = e.GetPosition(bitmapimage, 0);
+            var finger2 = e.GetPosition(bitmapimage, 1);
+            var center = new Point(
+            (finger2.X + finger1.X) / 2 / bitmapimage.ActualWidth,
 
-            // what to do when writing is complete
-            wc.WriteStreamClosed += (s, args) =>
-            {
-                MessageBox.Show("Upload Complete");
-            };
+            (finger2.Y + finger1.Y) / 2 / bitmapimage.ActualHeight);
 
-            // Write to the WebClient
-            wc.OpenWriteAsync(uri, "POST");
-        }
+            bitmapimage.RenderTransformOrigin = center;
+
+            var transform = (CompositeTransform)bitmapimage.RenderTransform;
+            transform.ScaleX = initialScale * e.DistanceRatio;
+
+            transform.ScaleY = transform.ScaleX;
+        }   
+        
                     
     }//apppage
 }//namespace
