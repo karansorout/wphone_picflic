@@ -16,8 +16,6 @@ namespace PicFlic
     public partial class gAlbumPage : PhoneApplicationPage
     {
         App global = App.Current as App;//load present state of app
-        string img_href = string.Empty;//image upload url initialization
-        //PhotoChooserTask photoChooserTask;//object for photo choser task
         
         public gAlbumPage()
         {
@@ -25,10 +23,6 @@ namespace PicFlic
             
             //set page name, indicating current location
             p3_albumimagespage_name.Text = String.Format("PicFlic>Albums>" + global.galbumlist[global.selectedAlbumIndex].title);
-
-            //int selectedAlbumIndex = Convert.ToInt32(global.selectedAlbumIndex);
-            //string href_new = global.galbumlist[global.selectedAlbumIndex].href;
-            
         }
 
         // Navigate to this page
@@ -60,11 +54,11 @@ namespace PicFlic
         private void GetImages()
         {
             WebClient webClient = new WebClient();
-            //int selected_galbumIndex = Convert.ToInt32(global.selectedAlbumIndex);
             string auth = "GoogleLogin auth=" + global.gtoken;
             webClient.Headers[HttpRequestHeader.Authorization] = auth;
             Uri uri = new Uri(global.galbumlist[global.selectedAlbumIndex].href, UriKind.Absolute);
             webClient.DownloadStringCompleted += new DownloadStringCompletedEventHandler(ImagesDownloaded);
+
             webClient.DownloadStringAsync(uri);
         }
 
@@ -105,6 +99,15 @@ namespace PicFlic
                         IDictionary<string, object> content = (IDictionary<string, object>)entry["content"];
                         // Get image src url
                         albumImage.content = (string)content["src"];
+
+                        // Link List
+                        IList link = (IList)entry["link"];
+                        // First link is album data link object
+                        IDictionary<string, object> href = (IDictionary<string, object>)link[0];
+                        // Get album href
+                        albumImage.href = (string)href["href"];
+                                
+
                         // Image width object
                         IDictionary<string, object> width = (IDictionary<string, object>)entry["gphoto$width"];
                         // Get image width
@@ -135,14 +138,14 @@ namespace PicFlic
             {
                 MessageBox.Show("Cannot load images from Picasa server!");
             }
-            catch (KeyNotFoundException)
-            {
-                MessageBox.Show("Cannot load images from Picasa Server - JSON parsing error happened!");
-            }
+            //catch (KeyNotFoundException)
+            //{
+            //    MessageBox.Show("No images found");
+            //}
         }
 
         //handling upload pic
-        private void p4_appbar_uploadpic(object sender, EventArgs e)
+        private void p3_appbar_uploadpic(object sender, EventArgs e)
         {
             //MessageBox.Show("p4_appbar_uploadpic works!");
 
@@ -172,7 +175,7 @@ namespace PicFlic
             const int BLOCK_SIZE = 4096;
             //img_href.Replace("entry", "feed");
             //Uri uri = new Uri("http://picasaweb.google.com/data/feed/api/user/default/albumid/default", UriKind.Absolute);
-            Uri uri = new Uri(img_href, UriKind.Absolute);
+            Uri uri = new Uri(global.galbumlist[global.selectedAlbumIndex].href, UriKind.Absolute);
 
             WebClient wc = new WebClient();
             string AuthToken = global.gtoken;
@@ -206,6 +209,8 @@ namespace PicFlic
             wc.WriteStreamClosed += (s, args) =>
             {
                 MessageBox.Show("Upload Complete");
+                //refresh thumbnail list
+                GetImages();
             };
 
             // Write to the WebClient
@@ -217,9 +222,10 @@ namespace PicFlic
         private void AlbumImagesListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //MessageBox.Show("Inside Albumimageslistbox_selectionchanged loop on 'Album Images' Page");
-            //if (AlbumImagesListBox.SelectedIndex == -1) return;
+            if (AlbumImagesListBox.SelectedIndex == -1) return;
             global.selectedImageIndex = AlbumImagesListBox.SelectedIndex;
             this.NavigationService.Navigate(new Uri("/gAlbumImagesPage.xaml?SelectedImageIndex=" + global.selectedImageIndex, UriKind.Relative));
+            AlbumImagesListBox.SelectedIndex = -1;
         }
     
     }//apppage

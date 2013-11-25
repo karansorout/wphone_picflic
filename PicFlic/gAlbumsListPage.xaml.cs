@@ -121,6 +121,7 @@ namespace PicFlic
                     }
                 }
 
+                
         // Handle selection from AlbumListBox
         private void AlbumsListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -130,6 +131,30 @@ namespace PicFlic
 
             //MessageBox.Show("ready to go to next page");
             this.NavigationService.Navigate(new Uri("/gAlbumPage.xaml?SelectedIndex=" + AlbumsListBox.SelectedIndex, UriKind.Relative));
+            AlbumsListBox.SelectedIndex = -1;
+        }
+
+        protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            if (AlbumsListBox != null)
+            {
+                AlbumsListBox.SelectionChanged += AlbumsListBox_SelectionChanged;
+            }
+        }
+
+        protected override void OnNavigatedFrom(System.Windows.Navigation.NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            if (AlbumsListBox != null)
+            {
+                AlbumsListBox.SelectionChanged -= AlbumsListBox_SelectionChanged;
+            }
+        }
+
+        private void p2_NewAlbumForm(object sender, EventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("/NewAlbumForm.xaml", UriKind.Relative));
         }
 
     }//app page    

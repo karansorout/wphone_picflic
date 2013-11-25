@@ -77,7 +77,6 @@ namespace PicFlic
             }
         }
              
-    //Various definitions
       // get authentication from Google
       private void gconnect()
       {
@@ -87,13 +86,11 @@ namespace PicFlic
           Uri uri = new Uri(string.Format("https://www.google.com/accounts/ClientLogin?Email={0}&Passwd={1}&service=lh2&accountType=GOOGLE", username, password));
           webClient.DownloadStringCompleted += new DownloadStringCompletedEventHandler(gconnectResults);
           webClient.DownloadStringAsync(uri);
-          //MessageBox.Show("3. after welclient connection");
-      }
+       }
 
       //google authentication handling
       private void gconnectResults(object sender, DownloadStringCompletedEventArgs e)
       {
-          //MessageBox.Show("4.gconnect response" + e.Result + "error=" + e.Error);
           try
           {
               
@@ -106,23 +103,10 @@ namespace PicFlic
                   }
                   if (gtoken != "")
                   {
-                    //navigate to gAlbumsListPage.xaml page
-                    //PhoneApplicationService.Current.State["gtoken"] = global.gtoken;
-                    //PhoneApplicationService.Current.State["username"] = global.username;
-                    
-                    //MessageBox.Show("5.about to go to new page :-)");
-                    //MessageBox.Show("6.gtoken val for new page=" + gtoken);
-                    //MessageBox.Show("7.uname val for new page=" + username);
-
                     PhoneApplicationService.Current.State["gtoken"] = gtoken;
                     PhoneApplicationService.Current.State["username"] = username;
 
                     this.NavigationService.Navigate(new Uri("/gAlbumsListPage.xaml", UriKind.Relative));
-                    
-                      
-                    //this.NavigationService.Navigate(new Uri("/gAlbumsListPage.xaml?gtoken="+gtoken+"&username="+username, UriKind.Relative));
-                    //NavigationService.Navigate(new Uri(“/Page2.xaml?msg=”+ txtName.text,Uri.Relative) )
-                      
                     return;
                   }
               }
@@ -133,8 +117,5 @@ namespace PicFlic
               MessageBox.Show("Unable to authrize from google, excetion="+e.Error);
           }
       }
-
-    
-
     }//mainpage-application
 }//namespace

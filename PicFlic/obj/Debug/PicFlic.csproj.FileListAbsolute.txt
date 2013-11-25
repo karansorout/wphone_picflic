@@ -178,3 +178,99 @@ E:\Wphone\Project\_project_dev\PicFlic\PicFlic\obj\Debug\fi-FI\PicFlic.resources
 E:\Wphone\Project\_project_dev\PicFlic\PicFlic\obj\Debug\PicFlic.dll
 E:\Wphone\Project\_project_dev\PicFlic\PicFlic\obj\Debug\PicFlic.pdb
 E:\Wphone\Project\_project_dev\PicFlic\PicFlic\obj\Debug\XapCacheFile.xml
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\Bin\Debug\ApplicationIcon.png
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\Bin\Debug\Background.png
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\Bin\Debug\PicFlic.dll
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\Bin\Debug\PicFlic.pdb
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\Bin\Debug\fi-FI\PicFlic.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\Bin\Debug\AppManifest.xaml
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\Bin\Debug\PicFlic.xap
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\Bin\Debug\Microsoft.Phone.Controls.Toolkit.dll
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\Bin\Debug\PhonePerformance.dll
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\Bin\Debug\Microsoft.Phone.Controls.dll
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\Bin\Debug\Microsoft.Phone.Controls.xml
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\Bin\Debug\cs-CZ\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\Bin\Debug\da-DK\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\Bin\Debug\de-DE\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\Bin\Debug\el-GR\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\Bin\Debug\en-GB\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\Bin\Debug\es-ES\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\Bin\Debug\fi-FI\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\Bin\Debug\fr-FR\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\Bin\Debug\hu-HU\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\Bin\Debug\id-ID\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\Bin\Debug\it-IT\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\Bin\Debug\ja-JP\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\Bin\Debug\ko-KR\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\Bin\Debug\ms-MY\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\Bin\Debug\nb-NO\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\Bin\Debug\nl-NL\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\Bin\Debug\pl-PL\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\Bin\Debug\pt-BR\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\Bin\Debug\ru-RU\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\Bin\Debug\sv-SE\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\Bin\Debug\zh-CN\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\Bin\Debug\zh-TW\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\obj\Debug\PicFlic.csprojResolveAssemblyReference.cache
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\obj\Debug\App.g.cs
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\obj\Debug\gAlbumImagesPage.g.cs
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\obj\Debug\gAlbumPage.g.cs
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\obj\Debug\gAlbumsListPage.g.cs
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\obj\Debug\MainPage.g.cs
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\obj\Debug\PicFlic.g.resources
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\obj\Debug\PicFlic.AppResources.resources
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\obj\Debug\PicFlic.AppResources.fi-FI.resources
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\obj\Debug\PicFlic.csproj.GenerateResource.Cache
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\obj\Debug\fi-FI\PicFlic.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\obj\Debug\PicFlic.dll
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\obj\Debug\PicFlic.pdb
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\obj\Debug\XapCacheFile.xml
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\Bin\Debug\ApplicationIcon.png
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\Bin\Debug\Background.png
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\Bin\Debug\PicFlic.dll
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\Bin\Debug\PicFlic.pdb
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\Bin\Debug\fi-FI\PicFlic.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\Bin\Debug\AppManifest.xaml
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\Bin\Debug\PicFlic.xap
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\Bin\Debug\Microsoft.Phone.Controls.Toolkit.dll
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\Bin\Debug\PhonePerformance.dll
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\Bin\Debug\Microsoft.Phone.Controls.dll
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\Bin\Debug\Microsoft.Phone.Controls.xml
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\Bin\Debug\cs-CZ\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\Bin\Debug\da-DK\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\Bin\Debug\de-DE\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\Bin\Debug\el-GR\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\Bin\Debug\en-GB\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\Bin\Debug\es-ES\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\Bin\Debug\fi-FI\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\Bin\Debug\fr-FR\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\Bin\Debug\hu-HU\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\Bin\Debug\id-ID\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\Bin\Debug\it-IT\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\Bin\Debug\ja-JP\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\Bin\Debug\ko-KR\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\Bin\Debug\ms-MY\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\Bin\Debug\nb-NO\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\Bin\Debug\nl-NL\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\Bin\Debug\pl-PL\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\Bin\Debug\pt-BR\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\Bin\Debug\ru-RU\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\Bin\Debug\sv-SE\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\Bin\Debug\zh-CN\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\Bin\Debug\zh-TW\Microsoft.Phone.Controls.Toolkit.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\obj\Debug\PicFlic.csprojResolveAssemblyReference.cache
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\obj\Debug\App.g.cs
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\obj\Debug\gAlbumImagesPage.g.cs
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\obj\Debug\gAlbumPage.g.cs
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\obj\Debug\gAlbumsListPage.g.cs
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\obj\Debug\MainPage.g.cs
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\obj\Debug\PicFlic.g.resources
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\obj\Debug\PicFlic.AppResources.resources
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\obj\Debug\PicFlic.AppResources.fi-FI.resources
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\obj\Debug\PicFlic.csproj.GenerateResource.Cache
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\obj\Debug\fi-FI\PicFlic.resources.dll
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\obj\Debug\PicFlic.dll
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\obj\Debug\PicFlic.pdb
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\obj\Debug\XapCacheFile.xml
+G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\obj\Debug\NewAlbumForm.g.cs
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\obj\Debug\NewAlbumForm.g.cs

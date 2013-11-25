@@ -32,6 +32,7 @@ namespace PicFlic
     public class AlbumImage {
         public string title { get; set; }
         public string content { get; set; }
+        public string href { get; set; }
         public string width { get; set; }
         public string height { get; set; }
         public string size { get; set; }
