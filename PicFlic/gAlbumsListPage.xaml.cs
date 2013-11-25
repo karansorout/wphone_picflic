@@ -141,6 +141,13 @@ namespace PicFlic
             {
                 AlbumsListBox.SelectionChanged += AlbumsListBox_SelectionChanged;
             }
+            
+            //if (global.isLogoutFlag == 1)
+            //{
+            //    while (NavigationService.CanGoBack)
+            //          NavigationService.RemoveBackEntry();
+            //          NavigationContext.QueryString.Clear();
+            //}
         }
 
         protected override void OnNavigatedFrom(System.Windows.Navigation.NavigationEventArgs e)
@@ -149,12 +156,20 @@ namespace PicFlic
             if (AlbumsListBox != null)
             {
                 AlbumsListBox.SelectionChanged -= AlbumsListBox_SelectionChanged;
+                //global.createNewAlbumFlag = 1;
             }
         }
 
         private void p2_NewAlbumForm(object sender, EventArgs e)
         {
             this.NavigationService.Navigate(new Uri("/NewAlbumForm.xaml", UriKind.Relative));
+        }
+
+        //Logout initiated
+        private void Logout_Click(object sender, EventArgs e)
+        {
+            global.isLogoutFlag = 1;
+            this.NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
         }
 
     }//app page    

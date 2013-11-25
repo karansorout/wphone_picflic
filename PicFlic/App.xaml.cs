@@ -25,6 +25,8 @@ namespace PicFlic
         //p2 vars
         public AlbumsList galbumlist = new AlbumsList();
         public int selectedAlbumIndex;
+        public int isLogoutFlag;
+        //public int createNewAlbumFlag;
         //public string selectedAlbumName;
         //p3 vars
         public AlbumImages galbumImages = new AlbumImages();
@@ -83,12 +85,40 @@ namespace PicFlic
         // This code will not execute when the application is first launched
         private void Application_Activated(object sender, ActivatedEventArgs e)
         {
-        }
+            if (e.IsApplicationInstancePreserved)
+            {
+                //do nothing, app is already activated
+            }
+            else
+            {
+
+                var tombstore = new TransientDataStorage();
+
+                gtoken = tombstore.Restore<string>("t_gtoken");
+                username = tombstore.Restore<string>("t_username");
+                password = tombstore.Restore<string>("t_password");
+                galbumlist = tombstore.Restore<AlbumsList>("t_galbumlist");
+                selectedAlbumIndex = tombstore.Restore<int>("t_selectedAlbumIndex");
+                isLogoutFlag = tombstore.Restore<int>("t_isLogoutFlag");
+                selectedImageIndex = tombstore.Restore<int>("t_selectedImageIndex");
+                galbumImages = tombstore.Restore<AlbumImages>("t_galbumImages");
+            }
+         }
 
         // Code to execute when the application is deactivated (sent to background)
         // This code will not execute when the application is closing
         private void Application_Deactivated(object sender, DeactivatedEventArgs e)
         {
+            var tombstore = new TransientDataStorage();
+
+            tombstore.Backup("t_gtoken", gtoken);
+            tombstore.Backup("t_username", username);
+            tombstore.Backup("t_password", password);
+            tombstore.Backup("t_galbumlist", galbumlist);
+            tombstore.Backup("t_selectedAlbumIndex", selectedAlbumIndex);
+            tombstore.Backup("t_isLogoutFlag", isLogoutFlag);
+            tombstore.Backup("t_galbumImages", galbumImages);
+            tombstore.Backup("t_selectedImageIndex", selectedImageIndex);
         }
 
         // Code to execute when the application is closing (eg, user hit Back)

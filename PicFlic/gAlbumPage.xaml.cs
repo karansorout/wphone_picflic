@@ -83,7 +83,8 @@ namespace PicFlic
                     var entries = (IList)feed["entry"];
                     // clear previous images from albumImages
                     
-                    global.galbumImages.Clear();
+                    global.galbumImages.Clear();//clear list
+
                     // Find image details from entries
                     for (int i = 0; i < entries.Count; i++)
                     {
@@ -138,14 +139,14 @@ namespace PicFlic
             {
                 MessageBox.Show("Cannot load images from Picasa server!");
             }
-            //catch (KeyNotFoundException)
-            //{
-            //    MessageBox.Show("No images found");
-            //}
+            catch (KeyNotFoundException)
+            {
+                MessageBox.Show("No images in the Album");
+            }
         }
 
         //handling upload pic
-        private void p3_appbar_uploadpic(object sender, EventArgs e)
+        private void UploadPic_Click(object sender, EventArgs e)
         {
             //MessageBox.Show("p4_appbar_uploadpic works!");
 
@@ -161,7 +162,7 @@ namespace PicFlic
             if (e.TaskResult == TaskResult.OK)
             {
 
-                MessageBox.Show(e.ChosenPhoto.Length.ToString());
+                //MessageBox.Show(e.ChosenPhoto.Length.ToString());
                 UploadPhoto(e.ChosenPhoto);
 
             }
@@ -173,8 +174,6 @@ namespace PicFlic
         private void UploadPhoto(Stream stream)
         {
             const int BLOCK_SIZE = 4096;
-            //img_href.Replace("entry", "feed");
-            //Uri uri = new Uri("http://picasaweb.google.com/data/feed/api/user/default/albumid/default", UriKind.Absolute);
             Uri uri = new Uri(global.galbumlist[global.selectedAlbumIndex].href, UriKind.Absolute);
 
             WebClient wc = new WebClient();
@@ -184,7 +183,8 @@ namespace PicFlic
             wc.Headers[HttpRequestHeader.ContentType] = "image/jpeg";
             wc.AllowReadStreamBuffering = true;
             wc.AllowWriteStreamBuffering = true;
-            // what to do when write stream is open
+            
+            //write complete handler
             wc.OpenWriteCompleted += (s, args) =>
             {
                 using (BinaryReader br = new BinaryReader(stream))
@@ -208,17 +208,14 @@ namespace PicFlic
             // what to do when writing is complete
             wc.WriteStreamClosed += (s, args) =>
             {
-                MessageBox.Show("Upload Complete");
-                //refresh thumbnail list
-                GetImages();
+                MessageBox.Show("Image Uploaded Successfully!");
+                GetImages();//refresh images list
             };
 
-            // Write to the WebClient
-            wc.OpenWriteAsync(uri, "POST");
+            wc.OpenWriteAsync(uri, "POST");// Write to the WebClient
         }
         
-
-        //dummy handling of selection change
+        //Album selection change
         private void AlbumImagesListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //MessageBox.Show("Inside Albumimageslistbox_selectionchanged loop on 'Album Images' Page");
@@ -226,6 +223,13 @@ namespace PicFlic
             global.selectedImageIndex = AlbumImagesListBox.SelectedIndex;
             this.NavigationService.Navigate(new Uri("/gAlbumImagesPage.xaml?SelectedImageIndex=" + global.selectedImageIndex, UriKind.Relative));
             AlbumImagesListBox.SelectedIndex = -1;
+        }
+
+        //Logout initiated
+        private void Logout_Click(object sender, EventArgs e)
+        {
+            global.isLogoutFlag = 1;
+            this.NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
         }
     
     }//apppage

@@ -137,10 +137,10 @@ namespace PicFlic
             transform.ScaleY = transform.ScaleX;
         }
 
-        private void p4_appbar_deleteimage_Click(object sender, EventArgs e)
+        private void deleteimage_Click(object sender, EventArgs e)
          {
              MessageBox.Show("DELETE PIC : Are you sure?");
-            string url = global.galbumImages[global.selectedImageIndex].href.Replace("feed", "media"); //hinted by google oath2.0 playground
+            string url = global.galbumImages[global.selectedImageIndex].href.Replace("feed", "media"); //google oath2.0 playground
             Uri uri = new Uri(url, UriKind.Absolute);// concat. absolute uri
 
             WebClient wc = new WebClient();
@@ -265,10 +265,17 @@ namespace PicFlic
             {
                 MessageBox.Show("Cannot load images from Picasa server!");
             }
-            //catch (KeyNotFoundException)
-            //{
-            //    MessageBox.Show("No images found");
-            //}
+            catch (KeyNotFoundException)
+            {
+                MessageBox.Show("No images in the Album");
+            }
+          }
+
+        //Logout initiated
+        private void Logout_Click(object sender, EventArgs e)
+        {
+            global.isLogoutFlag = 1;
+            this.NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
         }
                     
     }//apppage

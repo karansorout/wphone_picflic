@@ -19,11 +19,11 @@ namespace PicFlic
 {
     public partial class MainPage : PhoneApplicationPage
     {
-        //private App global = App.Current as App;
+        private App global = App.Current as App;
         private string gtoken = string.Empty;
         private string username = string.Empty;
         private string password = string.Empty;
-      
+        
         // Constructor
         public MainPage()
         {
@@ -107,6 +107,7 @@ namespace PicFlic
                     PhoneApplicationService.Current.State["username"] = username;
 
                     this.NavigationService.Navigate(new Uri("/gAlbumsListPage.xaml", UriKind.Relative));
+                    global.isLogoutFlag = 0;
                     return;
                   }
               }
@@ -117,5 +118,39 @@ namespace PicFlic
               MessageBox.Show("Unable to authrize from google, excetion="+e.Error);
           }
       }
+
+      private void AboutPicFlic_Click(object sender, EventArgs e)
+      {
+          MessageBox.Show("***PICFLIC - \"Flick your Pics in cloud\"***" + "\n" + "\n" +
+              "SOURCE & LICENSE:The maintenance of your pictures over the Free Google Cloud Service nicknamed Picasa would be very easy using the application. This app uses the free picasa api and abides to their normal usases terms & conditions" + "\n" + "\n" +
+              "Main Features:"+"\n" +
+              "-Persistant Login to cloud service"+"\n"+
+              "-Create New Album, Upload new pics"+"\n" +
+              "-Take a pic & upload directly" + "\n" +
+              "-Zoom & pinch single picture view to enoy HD pics" + "\n" +
+              "-Delete unwanted pics easily while browsing pics");
+      }
+
+      protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
+      {
+          base.OnNavigatedTo(e);
+          
+          //Logout handling
+          if (global.isLogoutFlag == 1)
+          {
+              while (NavigationService.CanGoBack)//is history stack available?
+                NavigationService.RemoveBackEntry();//remove history stack
+                global.gtoken = "";//clear auth token
+                NavigationContext.QueryString.Clear();//clear all lists
+          }
+      }
+
+      //protected override void OnNavigatedFrom(System.Windows.Navigation.NavigationEventArgs e)
+      //{
+      //    base.OnNavigatedTo(e);
+          
+      //}
+
+
     }//mainpage-application
 }//namespace

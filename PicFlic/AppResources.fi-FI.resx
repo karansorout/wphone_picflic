@@ -134,8 +134,8 @@
     <comment>password</comment>
   </data>
   <data name="p1_txtBlock_tagline" xml:space="preserve">
-    <value>***pic tuonti pilvi helppoa***</value>
-    <comment>app tagline</comment>
+    <value>***Flick your Pics in cloud***</value>
+    <comment>app tagline,  no translate needed</comment>
   </data>
   <data name="p1_txtBlock_uname" xml:space="preserve">
     <value>käyttäjätunnus:</value>
