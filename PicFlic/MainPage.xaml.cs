@@ -35,13 +35,15 @@ namespace PicFlic
         {
             if ((p1_radioButton_picasa.IsChecked != true) && (p1_radioButton_flickr.IsChecked != true))
             {
-                MessageBox.Show("Please select the drive to be connected");
+                //please select a target ddrive
+                MessageBox.Show(AppResources.p1_user_msg_selectdrive);
             }
             else
             {
                 if (p1_radioButton_flickr.IsChecked == true)
                 {
-                    MessageBox.Show("Connection with Flickr is under construction...");
+                    //Flicker is under construction
+                    MessageBox.Show(AppResources.p1_flickr_underconstruction_msg);
                 }
                 else
                 {
@@ -80,9 +82,7 @@ namespace PicFlic
       // get authentication from Google
       private void gconnect()
       {
-          //MessageBox.Show("2. before welclient connection");
           WebClient webClient = new WebClient();
-          //MessageBox.Show("credentials about to be submitted="+username+"/password="+password);
           Uri uri = new Uri(string.Format("https://www.google.com/accounts/ClientLogin?Email={0}&Passwd={1}&service=lh2&accountType=GOOGLE", username, password));
           webClient.DownloadStringCompleted += new DownloadStringCompletedEventHandler(gconnectResults);
           webClient.DownloadStringAsync(uri);
@@ -93,42 +93,37 @@ namespace PicFlic
       {
           try
           {
-              
               if (e.Result != null && e.Error == null)
               {
-                  int index = e.Result.IndexOf("Auth=");
-                  if (index != -1)
+                  int idx = e.Result.IndexOf("Auth=");//capture the index of google auth token
+                  if (idx != -1)
                   {
-                      gtoken = e.Result.Substring(index + 5);
+                      gtoken = e.Result.Substring(idx + 5);//capture the gtoken string
                   }
-                  if (gtoken != "")
+                  if (gtoken != "")//if found
                   {
-                    PhoneApplicationService.Current.State["gtoken"] = gtoken;
-                    PhoneApplicationService.Current.State["username"] = username;
+                    PhoneApplicationService.Current.State["gtoken"] = gtoken;//save google token
+                    PhoneApplicationService.Current.State["username"] = username;//save email
 
-                    this.NavigationService.Navigate(new Uri("/gAlbumsListPage.xaml", UriKind.Relative));
-                    global.isLogoutFlag = 0;
+                    this.NavigationService.Navigate(new Uri("/gAlbumsListPage.xaml", UriKind.Relative));//navigate to picasa album list page
+                    global.isLogoutFlag = 0;//logout flag is reset
                     return;
                   }
               }
-              MessageBox.Show("Authentication failed, please cCheck your Email and Password");
+              //Authentication failed, please Check your Email and Password
+              MessageBox.Show(AppResources.p1_authFailed);
           }
           catch (WebException)
           {
-              MessageBox.Show("Unable to authrize from google, excetion="+e.Error);
+              //Unable to authrize from google, excetion=
+              MessageBox.Show(AppResources.p1_unableToAuth + e.Error);
           }
       }
-
+        
+      //AboutUs Click handler
       private void AboutPicFlic_Click(object sender, EventArgs e)
       {
-          MessageBox.Show("***PICFLIC - \"Flick your Pics in cloud\"***" + "\n" + "\n" +
-              "SOURCE & LICENSE:The maintenance of your pictures over the Free Google Cloud Service nicknamed Picasa would be very easy using the application. This app uses the free picasa api and abides to their normal usases terms & conditions" + "\n" + "\n" +
-              "Main Features:"+"\n" +
-              "-Persistant Login to cloud service"+"\n"+
-              "-Create New Album, Upload new pics"+"\n" +
-              "-Take a pic & upload directly" + "\n" +
-              "-Zoom & pinch single picture view to enoy HD pics" + "\n" +
-              "-Delete unwanted pics easily while browsing pics");
+          MessageBox.Show(AppResources.p1_aboutApp);
       }
 
       protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
@@ -150,6 +145,30 @@ namespace PicFlic
       //    base.OnNavigatedTo(e);
           
       //}
+
+      //Pin to start / live tile handler
+      private void PinToStart_Click(object sender, EventArgs e)
+      {
+          StandardTileData standardTileData = new StandardTileData();
+          standardTileData.BackgroundImage = new Uri("/Images/background.png", UriKind.Relative);
+          standardTileData.Title = "*****PicFlic*****";
+          standardTileData.Count = 0;
+          standardTileData.BackTitle = "Flick your picasa images";
+          standardTileData.BackContent = "";
+          standardTileData.BackBackgroundImage = new Uri("/Images/background2.png", UriKind.Relative);
+
+          // Check if app is already pinned
+          ShellTile tiletopin = ShellTile.ActiveTiles.FirstOrDefault(x => x.NavigationUri.ToString().Contains("MainPage.xaml"));
+          if (tiletopin == null)
+          {
+              ShellTile.Create(new Uri("/MainPage.xaml", UriKind.Relative), standardTileData);//home page
+          }
+          else
+          {
+              //PicFlic is already Pinned
+              MessageBox.Show(AppResources.p1_alreadyPinned);
+          }
+      }
 
 
     }//mainpage-application

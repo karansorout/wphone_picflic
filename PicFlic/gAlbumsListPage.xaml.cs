@@ -25,14 +25,12 @@ namespace PicFlic
         public gAlbumsListPage()
         {
             InitializeComponent();
-            //MessageBox.Show("Welcome to Album List page");
             var gtoken = PhoneApplicationService.Current.State["gtoken"];
             var username = PhoneApplicationService.Current.State["username"];
             global.gtoken = gtoken.ToString();
             global.username = username.ToString();
-            //p2_albumListPageName.Text = String.Format("PicFlic > "+global.username+"'s Albums:");
-
-            fetch_galbumslist();
+            
+            fetch_galbumslist();//download list of picasa albums
         }
         
                 //fetch the list of albums
@@ -43,27 +41,24 @@ namespace PicFlic
                     Uri uri = new Uri(String.Format("http://picasaweb.google.com/data/feed/api/user/{0}?alt=json", global.username), UriKind.Absolute);
                     webClient.DownloadStringCompleted += new DownloadStringCompletedEventHandler(galbums_data);
                     webClient.DownloadStringAsync(uri);
-                    //MessageBox.Show("after fetching glist");
                 }
 
                 //handling gAlbums data
                 public void galbums_data(object sender, DownloadStringCompletedEventArgs e)
                 {
-                    //MessageBox.Show("something downloaded");
                     try
                     {
                         if (e.Result == null || e.Error != null)
                         {
-                            MessageBox.Show("Cannot get albums data from Picasa server - null returned!");
+                            //Cannot get albums data from Picasa server - null returned!
+                            MessageBox.Show(AppResources.p2_AlbumList_NullReturned);
                             return;
                         }
                         else
                         {
-                            //MessageBox.Show("e.error=" + e.Error +"////e.results="+e.Result);
-
-                            // Deserialize JSON string to dynamic object
+                            // Deserialize JSON
                             IDictionary<string, object> json = (IDictionary<string, object>)SimpleJson.DeserializeObject(e.Result);
-                            // Feed object
+                            // Get Feed
                             IDictionary<string, object> feed = (IDictionary<string, object>)json["feed"];
                             // GET authers
                             IList author = (IList)feed["author"];
@@ -72,7 +67,7 @@ namespace PicFlic
                             // get album counts
                             IList entries = (IList)feed["entry"];
 
-                            global.galbumlist.Clear();
+                            global.galbumlist.Clear();//clear old entries
 
                             // Find album details
                             for (int i = 0; i < entries.Count; i++)
@@ -113,11 +108,13 @@ namespace PicFlic
                     }
                     catch (WebException)
                     {
-                        MessageBox.Show("Cannot get albums data from Picasa server - web exception occured!");
+                        //Cannot get albums data from Picasa server - web exception occured!
+                        MessageBox.Show(AppResources.p2_webException);
                     }
                     catch (KeyNotFoundException)
                     {
-                        MessageBox.Show("Cannot load images from Picasa Server - JSON parsing error happened!");
+                        //No Albums Found or Cannot load images from Picasa Server
+                        MessageBox.Show(AppResources.p2_KeyNotFoundError);
                     }
                 }
 
@@ -141,13 +138,6 @@ namespace PicFlic
             {
                 AlbumsListBox.SelectionChanged += AlbumsListBox_SelectionChanged;
             }
-            
-            //if (global.isLogoutFlag == 1)
-            //{
-            //    while (NavigationService.CanGoBack)
-            //          NavigationService.RemoveBackEntry();
-            //          NavigationContext.QueryString.Clear();
-            //}
         }
 
         protected override void OnNavigatedFrom(System.Windows.Navigation.NavigationEventArgs e)

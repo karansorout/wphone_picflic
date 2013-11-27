@@ -46,7 +46,8 @@ namespace PicFlic
             }
             else
             {
-                MessageBox.Show("Please select an album from previous page");
+                //Please select an album from previous page
+                MessageBox.Show(AppResources.p4_selectAlbumagain);
             }
         }
 
@@ -61,10 +62,10 @@ namespace PicFlic
         {
             if (e.HorizontalChange > 0)//L to R
             {
-                global.selectedImageIndex--;
-                if (global.selectedImageIndex < 0)
+                global.selectedImageIndex--;//decrease idx
+                if (global.selectedImageIndex < 0)//if first image reached
                 {
-                    global.selectedImageIndex = global.galbumImages.Count - 1;
+                    global.selectedImageIndex = global.galbumImages.Count - 1;//go to last image
                 }
                 LoadImage();
             }
@@ -139,7 +140,9 @@ namespace PicFlic
 
         private void deleteimage_Click(object sender, EventArgs e)
          {
-             MessageBox.Show("DELETE PIC : Are you sure?");
+             //DELETE PIC : Are you sure?
+             MessageBox.Show(AppResources.p4_deletePic);
+
             string url = global.galbumImages[global.selectedImageIndex].href.Replace("feed", "media"); //google oath2.0 playground
             Uri uri = new Uri(url, UriKind.Absolute);// concat. absolute uri
 
@@ -162,7 +165,8 @@ namespace PicFlic
                     MessageBox.Show(e.Error.Message);
                 else
                     GetImages();//refresh thumbnail list
-                    MessageBox.Show("Image DELETED successfully");
+                    //Image DELETED successfully
+                    MessageBox.Show(AppResources.p4_imgDeletedSuccess);
                     
                     global.selectedImageIndex++;
                     //first if last is shown
@@ -195,16 +199,17 @@ namespace PicFlic
             {
                 if (e.Result == null || e.Error != null)
                 {
-                    MessageBox.Show("Cannot load images from Picasa server!");
+                    //Cannot load images from Picasa server!
+                    MessageBox.Show(AppResources.p3_webexception);
                     return;
                 }
                 else
                 {
-                    // Deserialize JSON string to dynamic object
+                    // Deserialize JSON
                     IDictionary<string, object> json = (IDictionary<string, object>)SimpleJson.DeserializeObject(e.Result);
-                    // Feed object
+                    // get feed
                     IDictionary<string, object> feed = (IDictionary<string, object>)json["feed"];
-                    // Number of photos object
+                    // get Number of photos
                     IDictionary<string, object> numberOfPhotos = (IDictionary<string, object>)feed["gphoto$numphotos"];
                     // Entries List
                     var entries = (IList)feed["entry"];
@@ -263,11 +268,11 @@ namespace PicFlic
             }
             catch (WebException)
             {
-                MessageBox.Show("Cannot load images from Picasa server!");
+                MessageBox.Show(AppResources.p3_webexception);//Cannot load images from Picasa server!
             }
             catch (KeyNotFoundException)
             {
-                MessageBox.Show("No images in the Album");
+                MessageBox.Show(AppResources.p3_KeyNotFoundException);//No images in the Album
             }
           }
 

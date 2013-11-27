@@ -14,7 +14,7 @@ namespace PicFlic
     {
         App global = App.Current as App;//load present state of app
         string NewAlbumAccessType = string.Empty;
-        int createNewAlbumFlag = 1;
+        //int createNewAlbumFlag = 1;
 
         public NewAlbumForm()
         {
@@ -26,7 +26,7 @@ namespace PicFlic
             if (NewAlbumAccessType_private.IsChecked == true) NewAlbumAccessType = "private";
             else NewAlbumAccessType = "public";
            
-           string entry = string.Format("<entry xmlns='http://www.w3.org/2005/Atom' xmlns:media='http://search.yahoo.com/mrss/' xmlns:gphoto='http://schemas.google.com/photos/2007'><title type='text'>{0}</title><summary type='text'>{1}</summary><gphoto:location>Helsinki</gphoto:location><gphoto:access>{2}</gphoto:access><gphoto:timestamp></gphoto:timestamp><media:group><media:keywords>New Album</media:keywords></media:group><category scheme='http://schemas.google.com/g/2005#kind' term='http://schemas.google.com/photos/2007#album'></category></entry>", NewAlbumName.Text, NewAlbumDesc.Text, NewAlbumAccessType);
+           string entry = string.Format("<entry xmlns='http://www.w3.org/2005/Atom' xmlns:media='http://search.yahoo.com/mrss/' xmlns:gphoto='http://schemas.google.com/photos/2007'><title type='text'>{0}</title><summary type='text'>{1}</summary><gphoto:location></gphoto:location><gphoto:access>{2}</gphoto:access><gphoto:timestamp></gphoto:timestamp><media:group><media:keywords></media:keywords></media:group><category scheme='http://schemas.google.com/g/2005#kind' term='http://schemas.google.com/photos/2007#album'></category></entry>", NewAlbumName.Text, NewAlbumDesc.Text, NewAlbumAccessType);
            
             WebClient wc = new WebClient();
             Uri uri = new Uri("https://picasaweb.google.com/data/feed/api/user/"+global.username, UriKind.Absolute);
@@ -45,10 +45,9 @@ namespace PicFlic
                 if (e.Error != null)
                     MessageBox.Show(e.Error.Message);
                 else
-                    //MessageBox.Show(e.Result);
-                //fetch_galbumslist();
-                MessageBox.Show("Album \"" + NewAlbumName.Text + "\" created Successfully!");
-                this.NavigationService.Navigate(new Uri("/gAlbumsListPage.xaml", UriKind.Relative));
+                    //localization pending
+                    MessageBox.Show("Album \"" + NewAlbumName.Text + "\" created Successfully!");
+                    this.NavigationService.Navigate(new Uri("/gAlbumsListPage.xaml", UriKind.Relative));
             }
 
             catch (Exception exc)

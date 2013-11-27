@@ -117,6 +117,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="p1_aboutApp" xml:space="preserve">
+    <value>***PICFLIC - \"Flick your Pics in cloud\"***" + "\n" + "\n" +
+              "SOURCE &amp; LICENSE:The maintenance of your pictures over the Free Google Cloud Service nicknamed Picasa would be very easy using the application. This app uses the free picasa api and abides to their normal usases terms &amp; conditions" + "\n" + "\n" +
+              "Main Features:"+"\n" +
+              "-Persistant Login to cloud service"+"\n"+
+              "-Create New Album, Upload new pics"+"\n" +
+              "-Take a pic &amp; upload directly" + "\n" +
+              "-Zoom &amp; pinch single picture view to enoy HD pics" + "\n" +
+              "-Delete unwanted pics easily while browsing pics</value>
+    <comment>msgBoxShow-aboutPage</comment>
+  </data>
+  <data name="p1_alreadyPinned" xml:space="preserve">
+    <value>PicFlic is already Pinned</value>
+  </data>
+  <data name="p1_authFailed" xml:space="preserve">
+    <value>Authentication failed, please cCheck your Email and Password</value>
+    <comment>msgBoxShow-google returned auth failed</comment>
+  </data>
   <data name="p1_btn_login" xml:space="preserve">
     <value>Login</value>
     <comment>Login</comment>
@@ -124,6 +142,10 @@
   <data name="p1_chkBox_remember" xml:space="preserve">
     <value>Remember My Choice</value>
     <comment>Remember my choice</comment>
+  </data>
+  <data name="p1_flickr_underconstruction_msg" xml:space="preserve">
+    <value>Connection with Flickr is under construction...</value>
+    <comment>messageBoxShow-flickrSelected</comment>
   </data>
   <data name="p1_txtBlock_connect" xml:space="preserve">
     <value>Connect to...</value>
@@ -138,8 +160,11 @@
     <comment>app tagline</comment>
   </data>
   <data name="p1_txtBlock_uname" xml:space="preserve">
-    <value>UserName:</value>
+    <value>Email:</value>
     <comment>User Name</comment>
+  </data>
+  <data name="p1_unableToAuth" xml:space="preserve">
+    <value>Unable to authrize from google, excetion=</value>
   </data>
   <data name="p1_user_msg_emptyfields" xml:space="preserve">
     <value>Either 'Username' or 'Password' is empty</value>
@@ -155,6 +180,60 @@
   </data>
   <data name="p1_user_msg_selectdrive" xml:space="preserve">
     <value>Please choose the target drive...</value>
-    <comment>choose drive msg</comment>
+    <comment>choose drive user msg</comment>
+  </data>
+  <data name="p2_2_txtBlock1" xml:space="preserve">
+    <value>Please provide the album info:</value>
+  </data>
+  <data name="p2_2_txtBlock2" xml:space="preserve">
+    <value>Album Name: *</value>
+  </data>
+  <data name="p2_2_txtBlock3" xml:space="preserve">
+    <value>Description (Optional):</value>
+  </data>
+  <data name="p2_2_txtBlock_Private" xml:space="preserve">
+    <value>Private</value>
+  </data>
+  <data name="p2_2_txtBlock_Public" xml:space="preserve">
+    <value>Public</value>
+  </data>
+  <data name="p2_2_txtBlock_Submit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="p2_2_txtBlock_Title" xml:space="preserve">
+    <value>PicFlic&gt;New Album Form</value>
+  </data>
+  <data name="p2_AlbumList_NullReturned" xml:space="preserve">
+    <value>Cannot get albums data from Picasa server - null returned!</value>
+    <comment>msgBoxShow-no album data null returned</comment>
+  </data>
+  <data name="p2_CreateNewAlbumMenu" xml:space="preserve">
+    <value>Create New Album</value>
+    <comment>Menu-newAlbum</comment>
+  </data>
+  <data name="p2_KeyNotFoundError" xml:space="preserve">
+    <value>No Albums Found or Cannot load images from Picasa Server</value>
+  </data>
+  <data name="p2_webException" xml:space="preserve">
+    <value>Cannot get albums data from Picasa server - web exception occured!</value>
+    <comment>usermasg- web exception</comment>
+  </data>
+  <data name="p3_imageUploadedSuccess" xml:space="preserve">
+    <value>Image Uploaded Successfully!</value>
+  </data>
+  <data name="p3_KeyNotFoundException" xml:space="preserve">
+    <value>No images in the Album</value>
+  </data>
+  <data name="p3_webexception" xml:space="preserve">
+    <value>Cannot load images from Picasa server!</value>
+  </data>
+  <data name="p4_deletePic" xml:space="preserve">
+    <value>DELETE PIC : Are you sure?</value>
+  </data>
+  <data name="p4_imgDeletedSuccess" xml:space="preserve">
+    <value>Image DELETED successfully</value>
+  </data>
+  <data name="p4_selectAlbumagain" xml:space="preserve">
+    <value>Please select an album from previous page</value>
   </data>
 </root>

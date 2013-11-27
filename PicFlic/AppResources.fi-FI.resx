@@ -117,32 +117,49 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="p1_aboutApp" xml:space="preserve">
+    <value>*** PICFLIC - \ leffa Kuvia pilvi \" *** "+" \ n "+" \ n "+"LÄHDE ja lisenssi: ylläpito kuvia yhä Free Google Cloud Service lempinimeltään Picasa olisierittäin helppo käyttääsovellus. Tämä sovellus käyttää vapaa Picasa api ja pysyy normaaliin usases ja ehdoin" + "\ n" + "\ n "+"Tärkeimmät ominaisuudet:" + "\ n" +"-Pysyvät Kirjaudu pilvi palvelu" + "\ n" +"-Luo uusi albumi, Lähetä uusia kuvia" + "\ n" +"-Ota kuva ja lähetä suoraan" + "\ n" +"-Zoom &amp; hyppysellinen yhden kuvan katselusta enoy HD kuvia" + "\ n" +"-Poista tarpeettomat kuvat helposti selaamisen kuvia"</value>
+  </data>
+  <data name="p1_alreadyPinned" xml:space="preserve">
+    <value>PicFlic on jo Pinned</value>
+  </data>
+  <data name="p1_authFailed" xml:space="preserve">
+    <value>Todennus epäonnistui, ota CTarkista sähköpostisi ja salasana</value>
+    <comment>msgBoxShow-google returned auth failed</comment>
+  </data>
   <data name="p1_btn_login" xml:space="preserve">
-    <value>kirjaudu</value>
+    <value>käyttäjätunnus</value>
     <comment>Login</comment>
   </data>
   <data name="p1_chkBox_remember" xml:space="preserve">
     <value>Muista valintani</value>
     <comment>Remember my choice</comment>
   </data>
+  <data name="p1_flickr_underconstruction_msg" xml:space="preserve">
+    <value>Yhteydessä Flickr on rakenteilla ...</value>
+    <comment>messageBoxShow-flickrSelected</comment>
+  </data>
   <data name="p1_txtBlock_connect" xml:space="preserve">
-    <value>yhteyden...</value>
+    <value>Yhdistä ...</value>
     <comment>Connect to drive message</comment>
   </data>
   <data name="p1_txtBlock_pwd" xml:space="preserve">
-    <value>salasana:</value>
+    <value>Salasana:</value>
     <comment>password</comment>
   </data>
   <data name="p1_txtBlock_tagline" xml:space="preserve">
-    <value>***Flick your Pics in cloud***</value>
-    <comment>app tagline,  no translate needed</comment>
+    <value>*** Leffa Kuvia pilvessä ***</value>
+    <comment>app tagline</comment>
   </data>
   <data name="p1_txtBlock_uname" xml:space="preserve">
-    <value>käyttäjätunnus:</value>
+    <value>Sähköposti:</value>
     <comment>User Name</comment>
   </data>
+  <data name="p1_unableToAuth" xml:space="preserve">
+    <value>Pysty authrize google, Suorituspäivämäärä =</value>
+  </data>
   <data name="p1_user_msg_emptyfields" xml:space="preserve">
-    <value>Joko 'Käyttäjätunnus' tai 'salasana' on tyhjä</value>
+    <value>Joko "Käyttäjätunnus" tai "salasana" on tyhjä</value>
     <comment>user message  - Either 'Username' or 'Password' is empty</comment>
   </data>
   <data name="p1_user_msg_invalidemail" xml:space="preserve">
@@ -155,6 +172,60 @@
   </data>
   <data name="p1_user_msg_selectdrive" xml:space="preserve">
     <value>Valitse kohde ajaa ...</value>
-    <comment>choose drive msg</comment>
+    <comment>choose drive user msg</comment>
+  </data>
+  <data name="p2_2_txtBlock1" xml:space="preserve">
+    <value>Antakaa albumin tiedot:</value>
+  </data>
+  <data name="p2_2_txtBlock2" xml:space="preserve">
+    <value>Albumin nimi: *</value>
+  </data>
+  <data name="p2_2_txtBlock3" xml:space="preserve">
+    <value>Kuvaus (valinnainen):</value>
+  </data>
+  <data name="p2_2_txtBlock_Private" xml:space="preserve">
+    <value>yksityinen</value>
+  </data>
+  <data name="p2_2_txtBlock_Public" xml:space="preserve">
+    <value>julkinen</value>
+  </data>
+  <data name="p2_2_txtBlock_Submit" xml:space="preserve">
+    <value>esittää</value>
+  </data>
+  <data name="p2_2_txtBlock_Title" xml:space="preserve">
+    <value>PicFlic&gt; Uusi albumi Form</value>
+  </data>
+  <data name="p2_AlbumList_NullReturned" xml:space="preserve">
+    <value>Ei pysty albumia tietoja Picasa server - null palannut!</value>
+    <comment>msgBoxShow-no album data null returned</comment>
+  </data>
+  <data name="p2_CreateNewAlbumMenu" xml:space="preserve">
+    <value>Luo uusi albumi</value>
+    <comment>Menu-newAlbum</comment>
+  </data>
+  <data name="p2_KeyNotFoundError" xml:space="preserve">
+    <value>Albumeja ei löydy tai ei voi ladata kuvia Picasa Server</value>
+  </data>
+  <data name="p2_webException" xml:space="preserve">
+    <value>Ei pysty albumia tietoja Picasa server - web poikkeus tapahtui!</value>
+    <comment>usermasg- web exception</comment>
+  </data>
+  <data name="p3_imageUploadedSuccess" xml:space="preserve">
+    <value>Kuvan siirto onnistui!</value>
+  </data>
+  <data name="p3_KeyNotFoundException" xml:space="preserve">
+    <value>Ei kuvia Album</value>
+  </data>
+  <data name="p3_webexception" xml:space="preserve">
+    <value>Ei voi ladata kuvia Picasa-palvelin!</value>
+  </data>
+  <data name="p4_deletePic" xml:space="preserve">
+    <value>DELETE PIC: Oletko varma?</value>
+  </data>
+  <data name="p4_imgDeletedSuccess" xml:space="preserve">
+    <value>Kuva deleted successfully</value>
+  </data>
+  <data name="p4_selectAlbumagain" xml:space="preserve">
+    <value>Valitse albumi edelliseltä sivulta</value>
   </data>
 </root>

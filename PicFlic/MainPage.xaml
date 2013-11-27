@@ -11,7 +11,7 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    SupportedOrientations="Portrait" Orientation="Portrait"
+    SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
@@ -24,21 +24,21 @@
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
             <TextBlock x:Name="PageTitle" Text="PicFlic" Foreground="brown" FontSize="50" FontFamily="Comic Sans MS" FontWeight="Bold" HorizontalAlignment="Center" Margin="9,-7,9,0" Style="{StaticResource PhoneTextTitle1Style}" Height="80" FontStretch="Normal" Width="210" VerticalAlignment="Top" />
-            <Grid x:Name="ContentPanel" Background="Lavender" Width="417" Height="363">
+            <Grid x:Name="ContentPanel" Background="Lavender" Height="363" Margin="13,0,20,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="193" />
                     <RowDefinition Height="260" />
                 </Grid.RowDefinitions>
-                <TextBlock Height="38" HorizontalAlignment="Left" Margin="6,6,0,0" Name="p1_textBlock_connect" Text="{Binding Path=AppResources.p1_txtBlock_connect, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top" Width="156" Foreground="Brown" FontStyle="Italic" FontSize="20" />
-                <RadioButton Content="picasa" Height="75" HorizontalAlignment="Left" Margin="131,0,0,0" Name="p1_radioButton_picasa" VerticalAlignment="Top" Foreground="Brown" FontWeight="Bold" FontSize="26" GroupName="drive_name" Background="Brown" BorderBrush="Tan" BorderThickness="3" ClickMode="Press" AllowDrop="False" IsChecked="True" />
-                <RadioButton Content="flickr" FontWeight="Bold" Foreground="Brown" Height="72" HorizontalAlignment="Left" Margin="280,0,0,0" Name="p1_radioButton_flickr" VerticalAlignment="Top" FontSize="26" GroupName="drive_name" Background="Brown" BorderBrush="Tan" BorderThickness="3" />
-                <CheckBox Content="{Binding Path=AppResources.p1_chkBox_remember, Source={StaticResource LocalizedStrings}}" Height="65" HorizontalAlignment="Left" Margin="131,50,0,0" Name="p1_checkBox_remember" VerticalAlignment="Top" Width="225" BorderBrush="Brown" FontSize="15" FontWeight="Light" Foreground="Brown" Background="Tan" BorderThickness="3" ClickMode="Press" FontStyle="Italic" VerticalContentAlignment="Center" />
-                <TextBlock Height="45" HorizontalAlignment="Left" Margin="6,139,0,0" Name="p1_textBlock_uname" Text="{Binding Path=AppResources.p1_txtBlock_uname, Source={StaticResource LocalizedStrings}}" Foreground="Brown" VerticalAlignment="Top" Width="156" OpacityMask="Brown" FontSize="22" FontWeight="Black" FontStretch="Normal" TextAlignment="Center" />
-                <TextBox Height="77" HorizontalAlignment="Right" Margin="0,0,0,255" Name="p1_login_email" FontSize="20" Foreground="Black" Background="brown" BorderThickness="8" BorderBrush="Tan" VerticalAlignment="Bottom" Width="263" Grid.RowSpan="2" Text="karan.sorout99@gmail.com" />
-                <TextBlock FontSize="22" FontWeight="Black" Foreground="Brown" Height="45" HorizontalAlignment="Left" Margin="5,0,0,0" Name="p1_textBlock_pwd" OpacityMask="Brown" Text="{Binding Path=AppResources.p1_txtBlock_pwd, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top" Width="157" Grid.Row="1" TextAlignment="Center" />
-                <PasswordBox Height="74" HorizontalAlignment="Right" Name="p1_passwordBox" Background="Brown" BorderThickness="8" BorderBrush="Tan" VerticalAlignment="Top" Width="263" Margin="0,180,0,0" Grid.RowSpan="2" FontSize="20" Password="piyusha@123" />
-                <Button Content="{Binding Path=AppResources.p1_btn_login, Source={StaticResource LocalizedStrings}}" Foreground="White" Height="82" HorizontalAlignment="Left" Margin="244,50,0,0" Name="p1_button_login" Background="Brown" BorderThickness="8" BorderBrush="Tan" VerticalAlignment="Top" Width="166" Click="p1_button_login_Click" Grid.Row="1" FontSize="22" FontFamily="Segoe WP" />
-                <TextBlock Height="30" HorizontalAlignment="Left" Margin="0,135,0,0" Name="textBlock1" Text="{Binding Path=AppResources.p1_txtBlock_tagline, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top" Width="410" Foreground="Brown" TextAlignment="Center" FontStyle="Italic" FontStretch="SemiCondensed" Grid.Row="1" />
+                <TextBlock Height="38" HorizontalAlignment="Left" Margin="6,6,0,0" x:Name="p1_textBlock_connect" Text="{Binding AppResources.p1_txtBlock_connect, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top" Width="156" Foreground="Brown" FontStyle="Italic" FontSize="20" />
+                <RadioButton Content="picasa" Height="75" HorizontalAlignment="Left" Margin="131,0,0,0" x:Name="p1_radioButton_picasa" VerticalAlignment="Top" Foreground="Brown" FontWeight="Bold" FontSize="26" GroupName="drive_name" Background="Brown" BorderBrush="Tan" BorderThickness="3" ClickMode="Press" AllowDrop="False" IsChecked="True" />
+                <RadioButton Content="flickr" FontWeight="Bold" Foreground="Brown" Height="72" HorizontalAlignment="Left" Margin="280,0,0,0" x:Name="p1_radioButton_flickr" VerticalAlignment="Top" FontSize="26" GroupName="drive_name" Background="Brown" BorderBrush="Tan" BorderThickness="3" />
+                <!--<CheckBox Content="{Binding Path=AppResources.p1_chkBox_remember, Source={StaticResource LocalizedStrings}}" Height="65" HorizontalAlignment="Left" Margin="131,50,0,0" Name="p1_checkBox_remember" VerticalAlignment="Top" Width="225" BorderBrush="Brown" FontSize="15" FontWeight="Light" Foreground="Brown" Background="Tan" BorderThickness="3" ClickMode="Press" FontStyle="Italic" VerticalContentAlignment="Center" />-->
+                <TextBlock Height="45" HorizontalAlignment="Left" Margin="12,105,0,0" x:Name="p1_textBlock_uname" Text="{Binding AppResources.p1_txtBlock_uname, Source={StaticResource LocalizedStrings}}" Foreground="Brown" VerticalAlignment="Top" Width="156" OpacityMask="Brown" FontSize="22" FontWeight="Black" FontStretch="Normal" TextAlignment="Center" />
+                <TextBox Height="77" HorizontalAlignment="Right" Margin="0,0,2,31" x:Name="p1_login_email" FontSize="20" Foreground="Black" Background="brown" BorderThickness="8" BorderBrush="Tan" VerticalAlignment="Bottom" Width="263" Text="" />
+                <TextBlock FontSize="22" FontWeight="Black" Foreground="Brown" Height="45" HorizontalAlignment="Left" Margin="8,175,0,0" x:Name="p1_textBlock_pwd" OpacityMask="Brown" Text="{Binding AppResources.p1_txtBlock_pwd, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top" Width="157" TextAlignment="Center" Grid.RowSpan="2" />
+                <PasswordBox Height="74" HorizontalAlignment="Right" x:Name="p1_passwordBox" Background="Brown" BorderThickness="8" BorderBrush="Tan" VerticalAlignment="Top" Width="263" Margin="0,156,2,0" Grid.RowSpan="2" FontSize="20" Password="" />
+                <Button Content="{Binding AppResources.p1_btn_login, Source={StaticResource LocalizedStrings}}" Foreground="White" Height="82" HorizontalAlignment="Left" Margin="265,37,0,0" x:Name="p1_button_login" Background="Brown" BorderThickness="8" BorderBrush="Tan" VerticalAlignment="Top" Width="166" Click="p1_button_login_Click" Grid.Row="1" FontSize="22" FontFamily="Segoe WP" RenderTransformOrigin="0.753,0.488" />
+                <TextBlock Height="30" HorizontalAlignment="Left" Margin="0,135,0,0" x:Name="textBlock1" Text="{Binding AppResources.p1_txtBlock_tagline, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top" Width="410" Foreground="Brown" TextAlignment="Center" FontStyle="Italic" FontStretch="SemiCondensed" Grid.Row="1" />
             </Grid>
         </StackPanel>
 
@@ -55,7 +55,7 @@
             <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Button 2"/>-->
             <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem x:Name="AboutPicFlic" Text="About PicFlic" IsEnabled="True" Click="AboutPicFlic_Click"/>
-                <!--<shell:ApplicationBarMenuItem Text="MenuItem 2"/>-->
+                <shell:ApplicationBarMenuItem Text="Pin To Start" Click="PinToStart_Click"/>
             </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>

@@ -61,6 +61,38 @@ namespace PicFlic {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ***PICFLIC - \&quot;Flick your Pics in cloud\&quot;***&quot; + &quot;\n&quot; + &quot;\n&quot; +
+        ///              &quot;SOURCE &amp; LICENSE:The maintenance of your pictures over the Free Google Cloud Service nicknamed Picasa would be very easy using the application. This app uses the free picasa api and abides to their normal usases terms &amp; conditions&quot; + &quot;\n&quot; + &quot;\n&quot; +
+        ///              &quot;Main Features:&quot;+&quot;\n&quot; +
+        ///              &quot;-Persistant Login to cloud service&quot;+&quot;\n&quot;+
+        ///              &quot;-Create New Album, Upload new pics&quot;+&quot;\n&quot; +
+        ///              &quot;-Take a pic &amp;  [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string p1_aboutApp {
+            get {
+                return ResourceManager.GetString("p1_aboutApp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PicFlic is already Pinned.
+        /// </summary>
+        public static string p1_alreadyPinned {
+            get {
+                return ResourceManager.GetString("p1_alreadyPinned", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Authentication failed, please cCheck your Email and Password.
+        /// </summary>
+        public static string p1_authFailed {
+            get {
+                return ResourceManager.GetString("p1_authFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login.
         /// </summary>
         public static string p1_btn_login {
@@ -75,6 +107,15 @@ namespace PicFlic {
         public static string p1_chkBox_remember {
             get {
                 return ResourceManager.GetString("p1_chkBox_remember", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Connection with Flickr is under construction....
+        /// </summary>
+        public static string p1_flickr_underconstruction_msg {
+            get {
+                return ResourceManager.GetString("p1_flickr_underconstruction_msg", resourceCulture);
             }
         }
         
@@ -106,11 +147,20 @@ namespace PicFlic {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to UserName:.
+        ///   Looks up a localized string similar to Email:.
         /// </summary>
         public static string p1_txtBlock_uname {
             get {
                 return ResourceManager.GetString("p1_txtBlock_uname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to authrize from google, excetion=.
+        /// </summary>
+        public static string p1_unableToAuth {
+            get {
+                return ResourceManager.GetString("p1_unableToAuth", resourceCulture);
             }
         }
         
@@ -147,6 +197,159 @@ namespace PicFlic {
         public static string p1_user_msg_selectdrive {
             get {
                 return ResourceManager.GetString("p1_user_msg_selectdrive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Private.
+        /// </summary>
+        public static string p2_2_txtBlock_Private {
+            get {
+                return ResourceManager.GetString("p2_2_txtBlock_Private", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Public.
+        /// </summary>
+        public static string p2_2_txtBlock_Public {
+            get {
+                return ResourceManager.GetString("p2_2_txtBlock_Public", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submit.
+        /// </summary>
+        public static string p2_2_txtBlock_Submit {
+            get {
+                return ResourceManager.GetString("p2_2_txtBlock_Submit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PicFlic&gt;New Album Form.
+        /// </summary>
+        public static string p2_2_txtBlock_Title {
+            get {
+                return ResourceManager.GetString("p2_2_txtBlock_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please provide the album info:.
+        /// </summary>
+        public static string p2_2_txtBlock1 {
+            get {
+                return ResourceManager.GetString("p2_2_txtBlock1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Album Name: *.
+        /// </summary>
+        public static string p2_2_txtBlock2 {
+            get {
+                return ResourceManager.GetString("p2_2_txtBlock2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description (Optional):.
+        /// </summary>
+        public static string p2_2_txtBlock3 {
+            get {
+                return ResourceManager.GetString("p2_2_txtBlock3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot get albums data from Picasa server - null returned!.
+        /// </summary>
+        public static string p2_AlbumList_NullReturned {
+            get {
+                return ResourceManager.GetString("p2_AlbumList_NullReturned", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create New Album.
+        /// </summary>
+        public static string p2_CreateNewAlbumMenu {
+            get {
+                return ResourceManager.GetString("p2_CreateNewAlbumMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No Albums Found or Cannot load images from Picasa Server.
+        /// </summary>
+        public static string p2_KeyNotFoundError {
+            get {
+                return ResourceManager.GetString("p2_KeyNotFoundError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot get albums data from Picasa server - web exception occured!.
+        /// </summary>
+        public static string p2_webException {
+            get {
+                return ResourceManager.GetString("p2_webException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Image Uploaded Successfully!.
+        /// </summary>
+        public static string p3_imageUploadedSuccess {
+            get {
+                return ResourceManager.GetString("p3_imageUploadedSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No images in the Album.
+        /// </summary>
+        public static string p3_KeyNotFoundException {
+            get {
+                return ResourceManager.GetString("p3_KeyNotFoundException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot load images from Picasa server!.
+        /// </summary>
+        public static string p3_webexception {
+            get {
+                return ResourceManager.GetString("p3_webexception", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DELETE PIC : Are you sure?.
+        /// </summary>
+        public static string p4_deletePic {
+            get {
+                return ResourceManager.GetString("p4_deletePic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Image DELETED successfully.
+        /// </summary>
+        public static string p4_imgDeletedSuccess {
+            get {
+                return ResourceManager.GetString("p4_imgDeletedSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select an album from previous page.
+        /// </summary>
+        public static string p4_selectAlbumagain {
+            get {
+                return ResourceManager.GetString("p4_selectAlbumagain", resourceCulture);
             }
         }
     }
