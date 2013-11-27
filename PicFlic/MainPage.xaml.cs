@@ -20,14 +20,14 @@ namespace PicFlic
     public partial class MainPage : PhoneApplicationPage
     {
         private App global = App.Current as App;
-        private string gtoken = string.Empty;
-        private string username = string.Empty;
-        private string password = string.Empty;
+        private IsolatedStorageSettings applicationStorage;
         
         // Constructor
         public MainPage()
         {
             InitializeComponent();
+            
+            applicationStorage = IsolatedStorageSettings.ApplicationSettings;
         }
 
         //login button press handling  
@@ -65,12 +65,8 @@ namespace PicFlic
                         }
                         else
                         {
-                            //all check passed, go for authentication
-                            username = p1_login_email.Text;
-                            password = p1_passwordBox.Password;
 
-                            //MessageBox.Show("1.just before calling gconnect function");
-                            gconnect();
+                            gconnect();//google authentication
 
                         }
 
@@ -82,8 +78,13 @@ namespace PicFlic
       // get authentication from Google
       private void gconnect()
       {
+          if (global.isLoginFlag == 0)
+          {
+              global.username = p1_login_email.Text;
+              global.password = p1_passwordBox.Password;
+          }
           WebClient webClient = new WebClient();
-          Uri uri = new Uri(string.Format("https://www.google.com/accounts/ClientLogin?Email={0}&Passwd={1}&service=lh2&accountType=GOOGLE", username, password));
+          Uri uri = new Uri(string.Format("https://www.google.com/accounts/ClientLogin?Email={0}&Passwd={1}&service=lh2&accountType=GOOGLE", global.username, global.password));
           webClient.DownloadStringCompleted += new DownloadStringCompletedEventHandler(gconnectResults);
           webClient.DownloadStringAsync(uri);
        }
@@ -93,20 +94,39 @@ namespace PicFlic
       {
           try
           {
-              if (e.Result != null && e.Error == null)
+              if (e.Result != null && e.Error == null)//auth sucess
               {
                   int idx = e.Result.IndexOf("Auth=");//capture the index of google auth token
                   if (idx != -1)
                   {
-                      gtoken = e.Result.Substring(idx + 5);//capture the gtoken string
+                      global.gtoken = e.Result.Substring(idx + 5);//capture the gtoken string
                   }
-                  if (gtoken != "")//if found
+                  if (global.gtoken != "")//if found
                   {
-                    PhoneApplicationService.Current.State["gtoken"] = gtoken;//save google token
-                    PhoneApplicationService.Current.State["username"] = username;//save email
+                     //user logged in successfully, lets move necessary info to store
+                      global.isLoginFlag = 1;//Login flag is set
 
-                    this.NavigationService.Navigate(new Uri("/gAlbumsListPage.xaml", UriKind.Relative));//navigate to picasa album list page
-                    global.isLogoutFlag = 0;//logout flag is reset
+                      // Saving logon details to the isolated storage.
+                      if (applicationStorage.Contains("username"))
+                          applicationStorage["username"] = global.username;
+                      else
+                          applicationStorage.Add("username", global.username);
+
+                      if (applicationStorage.Contains("password"))
+                          applicationStorage["password"] = global.password;
+                      else
+                          applicationStorage.Add("password", global.password);
+
+                      if (applicationStorage.Contains("isLoginFlag"))
+                          applicationStorage["isLoginFlag"] = global.isLoginFlag;
+                      else
+                          applicationStorage.Add("isLoginFlag", global.isLoginFlag);
+                     
+
+                     this.NavigationService.Navigate(new Uri("/gAlbumsListPage.xaml", UriKind.Relative));//navigate to picasa album list page
+                    
+
+                    
                     return;
                   }
               }
@@ -129,15 +149,39 @@ namespace PicFlic
       protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
       {
           base.OnNavigatedTo(e);
-          
+          string logout = string.Empty;
           //Logout handling
-          if (global.isLogoutFlag == 1)
+          if (NavigationContext.QueryString.TryGetValue("logout", out logout))
           {
-              while (NavigationService.CanGoBack)//is history stack available?
-                NavigationService.RemoveBackEntry();//remove history stack
-                global.gtoken = "";//clear auth token
-                NavigationContext.QueryString.Clear();//clear all lists
+              LogoutUser();  
           }
+      }
+
+      private void LogoutUser()
+      {
+          global.isLoginFlag = 0;
+
+          if (applicationStorage.Contains("isLoginFlag"))
+              applicationStorage["isLoginFlag"] = global.isLoginFlag;
+          else
+              applicationStorage.Add("isLoginFlag", global.isLoginFlag);
+
+          if (applicationStorage.Contains("username"))
+              applicationStorage["username"] = string.Empty;
+          else
+              applicationStorage.Add("username", global.isLoginFlag);
+
+          if (applicationStorage.Contains("password"))
+              applicationStorage["password"] = string.Empty;
+          else
+              applicationStorage.Add("password", string.Empty);
+
+          while (NavigationService.CanGoBack)//is history stack available?
+              NavigationService.RemoveBackEntry();//remove history stack
+          global.gtoken = string.Empty;//clear auth token
+          global.username = string.Empty;
+          global.password = string.Empty;
+          NavigationContext.QueryString.Clear();//clear all lists
       }
 
       //protected override void OnNavigatedFrom(System.Windows.Navigation.NavigationEventArgs e)

@@ -12,6 +12,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using System.IO.IsolatedStorage;
 
 namespace PicFlic
 {
@@ -25,14 +26,14 @@ namespace PicFlic
         //p2 vars
         public AlbumsList galbumlist = new AlbumsList();
         public int selectedAlbumIndex;
-        public int isLogoutFlag;
+        public int isLoginFlag;
         //public int createNewAlbumFlag;
         //public string selectedAlbumName;
         //p3 vars
         public AlbumImages galbumImages = new AlbumImages();
         public int selectedImageIndex;
-        
-        
+        Uri nUri;
+        private IsolatedStorageSettings applicationStorage;
         /// <summary>
         /// Provides easy access to the root frame of the Phone Application.
         /// </summary>
@@ -46,6 +47,7 @@ namespace PicFlic
         {
             // Global handler for uncaught exceptions. 
             UnhandledException += Application_UnhandledException;
+            //MessageBox.Show("Something went wrong, please restart the application");
 
             // Standard Silverlight initialization
             InitializeComponent();
@@ -75,10 +77,33 @@ namespace PicFlic
 
         }
 
+        
+
         // Code to execute when the application is launching (eg, from Start)
         // This code will not execute when the application is reactivated
         private void Application_Launching(object sender, LaunchingEventArgs e)
         {
+            
+            applicationStorage = IsolatedStorageSettings.ApplicationSettings;
+
+            if (applicationStorage.Contains("isLoginFlag"))
+            {
+                isLoginFlag = (int)applicationStorage["isLoginFlag"];
+            }
+
+            if (isLoginFlag == 1)//if logout button was not pressed
+            {
+                //Albums Page
+                nUri = new Uri("/gAlbumsListPage.xaml", UriKind.Relative);
+                ((App)Application.Current).RootFrame.Navigate(nUri);
+                
+            }
+            else
+            {
+                //Login Page
+                nUri = new Uri("/MainPage.xaml", UriKind.Relative);
+                ((App)Application.Current).RootFrame.Navigate(nUri);
+            }
         }
 
         // Code to execute when the application is activated (brought to foreground)
@@ -93,13 +118,13 @@ namespace PicFlic
             {
 
                 var tombstore = new TransientDataStorage();
-
-                gtoken = tombstore.Restore<string>("t_gtoken");
+                
+                isLoginFlag = tombstore.Restore<int>("t_isLoginFlag");
                 username = tombstore.Restore<string>("t_username");
                 password = tombstore.Restore<string>("t_password");
+                gtoken = tombstore.Restore<string>("t_gtoken");
                 galbumlist = tombstore.Restore<AlbumsList>("t_galbumlist");
                 selectedAlbumIndex = tombstore.Restore<int>("t_selectedAlbumIndex");
-                isLogoutFlag = tombstore.Restore<int>("t_isLogoutFlag");
                 selectedImageIndex = tombstore.Restore<int>("t_selectedImageIndex");
                 galbumImages = tombstore.Restore<AlbumImages>("t_galbumImages");
             }
@@ -111,12 +136,12 @@ namespace PicFlic
         {
             var tombstore = new TransientDataStorage();
 
-            tombstore.Backup("t_gtoken", gtoken);
+            tombstore.Backup("t_isLoginFlag", isLoginFlag);
             tombstore.Backup("t_username", username);
             tombstore.Backup("t_password", password);
+            tombstore.Backup("t_gtoken", gtoken);
             tombstore.Backup("t_galbumlist", galbumlist);
             tombstore.Backup("t_selectedAlbumIndex", selectedAlbumIndex);
-            tombstore.Backup("t_isLogoutFlag", isLogoutFlag);
             tombstore.Backup("t_galbumImages", galbumImages);
             tombstore.Backup("t_selectedImageIndex", selectedImageIndex);
         }
@@ -125,6 +150,7 @@ namespace PicFlic
         // This code will not execute when the application is deactivated
         private void Application_Closing(object sender, ClosingEventArgs e)
         {
+
         }
 
         // Code to execute if a navigation fails

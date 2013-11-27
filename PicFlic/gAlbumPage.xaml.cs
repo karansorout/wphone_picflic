@@ -221,8 +221,7 @@ namespace PicFlic
         //Logout initiated
         private void Logout_Click(object sender, EventArgs e)
         {
-            global.isLogoutFlag = 1;
-            this.NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+            this.NavigationService.Navigate(new Uri("/MainPage.xaml?logout=1", UriKind.Relative));
         }
 
     }//apppage

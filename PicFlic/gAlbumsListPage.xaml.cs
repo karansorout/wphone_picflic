@@ -20,17 +20,97 @@ namespace PicFlic
 {
     public partial class gAlbumsListPage : PhoneApplicationPage
     {
-        private App global = App.Current as App;
-           
+        private static App global = App.Current as App;
+        private IsolatedStorageSettings applicationStorage;
+        
         public gAlbumsListPage()
         {
             InitializeComponent();
-            var gtoken = PhoneApplicationService.Current.State["gtoken"];
-            var username = PhoneApplicationService.Current.State["username"];
-            global.gtoken = gtoken.ToString();
-            global.username = username.ToString();
+
+            applicationStorage = IsolatedStorageSettings.ApplicationSettings;
+
+            if (string.IsNullOrEmpty(global.gtoken))
+            {
+                //LOgin required
+                gconnect();
+            }
+            else
+            {
+                //LOgin available
+                fetch_galbumslist();//download list of picasa albums
+            }
             
-            fetch_galbumslist();//download list of picasa albums
+            
+        }
+
+        // get authentication from Google
+        private void gconnect()
+        {
+            if (global.isLoginFlag == 1)
+            {
+                if (applicationStorage.Contains("username"))
+                {
+                    global.username = (string)applicationStorage["username"];
+                }
+
+                if (applicationStorage.Contains("password"))
+                {
+                    global.password = (string)applicationStorage["password"];
+                }
+            }
+
+
+            WebClient webClient = new WebClient();
+            Uri uri = new Uri(string.Format("https://www.google.com/accounts/ClientLogin?Email={0}&Passwd={1}&service=lh2&accountType=GOOGLE", global.username, global.password));
+            webClient.DownloadStringCompleted += new DownloadStringCompletedEventHandler(gconnectResults);
+            webClient.DownloadStringAsync(uri);
+        }
+
+        //google authentication handling
+        private void gconnectResults(object sender, DownloadStringCompletedEventArgs e)
+        {
+            try
+            {
+                if (e.Result != null && e.Error == null)//auth sucess
+                {
+                    int idx = e.Result.IndexOf("Auth=");//capture the index of google auth token
+                    if (idx != -1)
+                    {
+                        global.gtoken = e.Result.Substring(idx + 5);//capture the gtoken string
+                    }
+                    if (global.gtoken != "")//if found
+                    {
+                        //user logged in successfully, lets move necessary info to store
+                        global.isLoginFlag = 1;//Login flag is set
+
+                        // Saving logon details to the isolated storage.
+                        if (applicationStorage.Contains("username"))
+                            applicationStorage["username"] = global.username;
+                        else
+                            applicationStorage.Add("username", global.username);
+
+                        if (applicationStorage.Contains("password"))
+                            applicationStorage["password"] = global.password;
+                        else
+                            applicationStorage.Add("password", global.password);
+
+                        if (applicationStorage.Contains("isLoginFlag"))
+                            applicationStorage["isLoginFlag"] = global.isLoginFlag;
+                        else
+                            applicationStorage.Add("isLoginFlag", global.isLoginFlag);
+
+                        fetch_galbumslist();//download list of picasa albums
+                        return;
+                    }
+                }
+                //Authentication failed, please Check your Email and Password
+                MessageBox.Show(AppResources.p1_authFailed);
+            }
+            catch (WebException)
+            {
+                //Unable to authrize from google, excetion=
+                MessageBox.Show(AppResources.p1_unableToAuth + e.Error);
+            }
         }
         
                 //fetch the list of albums
@@ -133,6 +213,7 @@ namespace PicFlic
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
+            NavigationService.RemoveBackEntry();//no go to login page using back button
             base.OnNavigatedTo(e);
             if (AlbumsListBox != null)
             {
@@ -158,8 +239,7 @@ namespace PicFlic
         //Logout initiated
         private void Logout_Click(object sender, EventArgs e)
         {
-            global.isLogoutFlag = 1;
-            this.NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+            this.NavigationService.Navigate(new Uri("/MainPage.xaml?logout=1", UriKind.Relative));
         }
 
     }//app page    

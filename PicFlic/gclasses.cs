@@ -49,22 +49,22 @@ namespace PicFlic
             if (null == value)
                 return false;
 
-            var store = PhoneApplicationService.Current.State;
-            if (store.ContainsKey(token))
-                store[token] = value;
+            var tombstore = PhoneApplicationService.Current.State;
+            if (tombstore.ContainsKey(token))
+                tombstore[token] = value;
             else
-                store.Add(token, value);
+                tombstore.Add(token, value);
 
             return true;
         }
 
         public T Restore<T>(string token)
         {
-            var store = PhoneApplicationService.Current.State;
-            if (!store.ContainsKey(token))
+            var tombstore = PhoneApplicationService.Current.State;
+            if (!tombstore.ContainsKey(token))
                 return default(T);
 
-            return (T)store[token];
+            return (T)tombstore[token];
         }
     }
 
