@@ -143,7 +143,14 @@ namespace PicFlic
       //AboutUs Click handler
       private void AboutPicFlic_Click(object sender, EventArgs e)
       {
-          MessageBox.Show(AppResources.p1_aboutApp);
+          MessageBox.Show("***PICFLIC - \"Flick your Pics in cloud\"***" + "\n" + "\n"
+              + AppResources.p1_aboutApp + "\n" + "\n" +
+              AppResources.p1_aboutApp1 + "\n" +
+              AppResources.p1_aboutApp2 + "\n" +
+              AppResources.p1_aboutApp3 + "\n" +
+              AppResources.p1_aboutApp4 + "\n" +
+              AppResources.p1_aboutApp5 + "\n" +
+              AppResources.p1_aboutApp6);
       }
 
       protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)

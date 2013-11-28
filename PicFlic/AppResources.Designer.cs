@@ -61,16 +61,65 @@ namespace PicFlic {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ***PICFLIC - \&quot;Flick your Pics in cloud\&quot;***&quot; + &quot;\n&quot; + &quot;\n&quot; +
-        ///              &quot;SOURCE &amp; LICENSE:The maintenance of your pictures over the Free Google Cloud Service nicknamed Picasa would be very easy using the application. This app uses the free picasa api and abides to their normal usases terms &amp; conditions&quot; + &quot;\n&quot; + &quot;\n&quot; +
-        ///              &quot;Main Features:&quot;+&quot;\n&quot; +
-        ///              &quot;-Persistant Login to cloud service&quot;+&quot;\n&quot;+
-        ///              &quot;-Create New Album, Upload new pics&quot;+&quot;\n&quot; +
-        ///              &quot;-Take a pic &amp;  [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to SOURCE &amp; LICENSE:The maintenance of your pictures over the Free Google Cloud Service nicknamed Picasa would be very easy using the application. This app uses the free picasa api and abides to their normal usases terms &amp; conditions.
         /// </summary>
         public static string p1_aboutApp {
             get {
                 return ResourceManager.GetString("p1_aboutApp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Main Features:.
+        /// </summary>
+        public static string p1_aboutApp1 {
+            get {
+                return ResourceManager.GetString("p1_aboutApp1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to -Persistant Login to cloud service.
+        /// </summary>
+        public static string p1_aboutApp2 {
+            get {
+                return ResourceManager.GetString("p1_aboutApp2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to -Create New Album, Upload new pics.
+        /// </summary>
+        public static string p1_aboutApp3 {
+            get {
+                return ResourceManager.GetString("p1_aboutApp3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to -Take a pic &amp; upload directly.
+        /// </summary>
+        public static string p1_aboutApp4 {
+            get {
+                return ResourceManager.GetString("p1_aboutApp4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to -Zoom &amp; pinch single picture view to enoy HD pics.
+        /// </summary>
+        public static string p1_aboutApp5 {
+            get {
+                return ResourceManager.GetString("p1_aboutApp5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to -Delete unwanted pics easily while browsing pics.
+        /// </summary>
+        public static string p1_aboutApp6 {
+            get {
+                return ResourceManager.GetString("p1_aboutApp6", resourceCulture);
             }
         }
         

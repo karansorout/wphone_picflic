@@ -242,5 +242,42 @@ namespace PicFlic
             this.NavigationService.Navigate(new Uri("/MainPage.xaml?logout=1", UriKind.Relative));
         }
 
+        //AboutUs Click handler
+        private void AboutPicFlic_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("***PICFLIC - \"Flick your Pics in cloud\"***" + "\n" + "\n"
+                + AppResources.p1_aboutApp + "\n" + "\n" +
+                AppResources.p1_aboutApp1 + "\n" +
+                AppResources.p1_aboutApp2 + "\n" +
+                AppResources.p1_aboutApp3 + "\n" +
+                AppResources.p1_aboutApp4 + "\n" +
+                AppResources.p1_aboutApp5 + "\n" +
+                AppResources.p1_aboutApp6);
+        }
+
+        //Pin to start / live tile handler
+        private void PinToStart_Click(object sender, EventArgs e)
+        {
+            StandardTileData standardTileData = new StandardTileData();
+            standardTileData.BackgroundImage = new Uri("/Images/background.png", UriKind.Relative);
+            standardTileData.Title = "*****PicFlic*****";
+            standardTileData.Count = 0;
+            standardTileData.BackTitle = "Flick your picasa images";
+            standardTileData.BackContent = "";
+            standardTileData.BackBackgroundImage = new Uri("/Images/background2.png", UriKind.Relative);
+
+            // Check if app is already pinned
+            ShellTile tiletopin = ShellTile.ActiveTiles.FirstOrDefault(x => x.NavigationUri.ToString().Contains("gAlbumListPage.xaml"));
+            if (tiletopin == null)
+            {
+                ShellTile.Create(new Uri("/MainPage.xaml", UriKind.Relative), standardTileData);//home page
+            }
+            else
+            {
+                //PicFlic is already Pinned
+                MessageBox.Show(AppResources.p1_alreadyPinned);
+            }
+        }
+
     }//app page    
 }//namespace

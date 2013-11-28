@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="p1_aboutApp" xml:space="preserve">
-    <value>*** PICFLIC - \ leffa Kuvia pilvi \" *** "+" \ n "+" \ n "+"LÄHDE ja lisenssi: ylläpito kuvia yhä Free Google Cloud Service lempinimeltään Picasa olisierittäin helppo käyttääsovellus. Tämä sovellus käyttää vapaa Picasa api ja pysyy normaaliin usases ja ehdoin" + "\ n" + "\ n "+"Tärkeimmät ominaisuudet:" + "\ n" +"-Pysyvät Kirjaudu pilvi palvelu" + "\ n" +"-Luo uusi albumi, Lähetä uusia kuvia" + "\ n" +"-Ota kuva ja lähetä suoraan" + "\ n" +"-Zoom &amp; hyppysellinen yhden kuvan katselusta enoy HD kuvia" + "\ n" +"-Poista tarpeettomat kuvat helposti selaamisen kuvia"</value>
+    <value>LÄHDE ja LISENSSI: ylläpito kuvia yhä Free Google Cloud Service lempinimeltään Picasa olisierittäin helppo käyttääsovellus. Tämä sovellus käyttää vapaa Picasa api ja pysyy normaaliin usases ja ehdoin</value>
   </data>
   <data name="p1_alreadyPinned" xml:space="preserve">
     <value>PicFlic on jo Pinned</value>
@@ -227,5 +227,23 @@
   </data>
   <data name="p4_selectAlbumagain" xml:space="preserve">
     <value>Valitse albumi edelliseltä sivulta</value>
+  </data>
+  <data name="p1_aboutApp1" xml:space="preserve">
+    <value>Tärkeimmät ominaisuudet:</value>
+  </data>
+  <data name="p1_aboutApp2" xml:space="preserve">
+    <value>-Pysyvät Kirjaudu pilvipalveluna</value>
+  </data>
+  <data name="p1_aboutApp3" xml:space="preserve">
+    <value>-Luo uusi albumi, Lähetä uusia kuvia</value>
+  </data>
+  <data name="p1_aboutApp4" xml:space="preserve">
+    <value>-Ota kuva ja lähetä suoraan</value>
+  </data>
+  <data name="p1_aboutApp5" xml:space="preserve">
+    <value>-Zoom &amp; hyppysellinen yhden kuvan katselusta enoy HD kuvia</value>
+  </data>
+  <data name="p1_aboutApp6" xml:space="preserve">
+    <value>-Poista tarpeettomat kuvat helposti selaamisen kuvia</value>
   </data>
 </root>

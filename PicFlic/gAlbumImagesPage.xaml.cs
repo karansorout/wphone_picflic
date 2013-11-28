@@ -126,18 +126,24 @@ namespace PicFlic
             var finger1 = e.GetPosition(bitmapimage, 0);
             var finger2 = e.GetPosition(bitmapimage, 1);
             var center = new Point(
+            
             (finger2.X + finger1.X) / 2 / bitmapimage.ActualWidth,
-
             (finger2.Y + finger1.Y) / 2 / bitmapimage.ActualHeight);
 
             bitmapimage.RenderTransformOrigin = center;
 
-            var transform = (CompositeTransform)bitmapimage.RenderTransform;
-            transform.ScaleX = initialScale * e.DistanceRatio;
+            if (initialScale >= 1.0 )
+              {
+                var transform = (CompositeTransform)bitmapimage.RenderTransform;
 
-            transform.ScaleY = transform.ScaleX;
-        }
-
+                if (initialScale * e.DistanceRatio >= 1.0)
+                {
+                transform.ScaleX = initialScale * e.DistanceRatio;
+                transform.ScaleY = transform.ScaleX;
+                }
+             }
+         }
+       
         private void deleteimage_Click(object sender, EventArgs e)
          {
              //DELETE PIC : Are you sure?

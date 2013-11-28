@@ -26,14 +26,14 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="PicFlic > Albums:" Name="p2_albumListPageName" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="PicFlic &gt; Albums:" x:Name="p2_albumListPageName" Style="{StaticResource PhoneTextNormalStyle}" Height="33" RenderTransformOrigin="0.498,-0.061"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
            <ListBox x:Name="AlbumsListBox" 
                      toolkit:TiltEffect.IsTiltEnabled="True"
-                     SelectionChanged="AlbumsListBox_SelectionChanged">
+                     SelectionChanged="AlbumsListBox_SelectionChanged" Margin="-12,-8,-12,-4">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <toolkit:WrapPanel 
@@ -47,8 +47,8 @@
                     <DataTemplate>
                         <StackPanel Margin="5">
                             <StackPanel Orientation="Vertical">
-                                <Image delay:LowProfileImageLoader.UriSource="{Binding thumbnail}" Width="160" Height="160"/>
-                                <TextBlock Text="{Binding title}"  Width="180" Height="30"/>
+                                <Image delay:LowProfileImageLoader.UriSource="{Binding thumbnail}" Width="180" Height="160"/>
+                                <TextBlock Text="{Binding title}"  Width="200" Height="30"/>
                             </StackPanel>
                         </StackPanel>
                     </DataTemplate>
@@ -65,6 +65,8 @@
             <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem Text="Create New Album" Click="p2_NewAlbumForm"/>
                 <shell:ApplicationBarMenuItem Text="Logout" Click="Logout_Click"/>
+                <shell:ApplicationBarMenuItem x:Name="AboutPicFlic" Text="About PicFlic" IsEnabled="True" Click="AboutPicFlic_Click"/>
+                <shell:ApplicationBarMenuItem Text="Pin To Start" Click="PinToStart_Click"/>
             </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>

@@ -118,14 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="p1_aboutApp" xml:space="preserve">
-    <value>***PICFLIC - \"Flick your Pics in cloud\"***" + "\n" + "\n" +
-              "SOURCE &amp; LICENSE:The maintenance of your pictures over the Free Google Cloud Service nicknamed Picasa would be very easy using the application. This app uses the free picasa api and abides to their normal usases terms &amp; conditions" + "\n" + "\n" +
-              "Main Features:"+"\n" +
-              "-Persistant Login to cloud service"+"\n"+
-              "-Create New Album, Upload new pics"+"\n" +
-              "-Take a pic &amp; upload directly" + "\n" +
-              "-Zoom &amp; pinch single picture view to enoy HD pics" + "\n" +
-              "-Delete unwanted pics easily while browsing pics</value>
+    <value>SOURCE &amp; LICENSE:The maintenance of your pictures over the Free Google Cloud Service nicknamed Picasa would be very easy using the application. This app uses the free picasa api and abides to their normal usases terms &amp; conditions</value>
     <comment>msgBoxShow-aboutPage</comment>
   </data>
   <data name="p1_alreadyPinned" xml:space="preserve">
@@ -235,5 +228,23 @@
   </data>
   <data name="p4_selectAlbumagain" xml:space="preserve">
     <value>Please select an album from previous page</value>
+  </data>
+  <data name="p1_aboutApp1" xml:space="preserve">
+    <value>Main Features:</value>
+  </data>
+  <data name="p1_aboutApp2" xml:space="preserve">
+    <value>-Persistant Login to cloud service</value>
+  </data>
+  <data name="p1_aboutApp3" xml:space="preserve">
+    <value>-Create New Album, Upload new pics</value>
+  </data>
+  <data name="p1_aboutApp4" xml:space="preserve">
+    <value>-Take a pic &amp; upload directly</value>
+  </data>
+  <data name="p1_aboutApp5" xml:space="preserve">
+    <value>-Zoom &amp; pinch single picture view to enoy HD pics</value>
+  </data>
+  <data name="p1_aboutApp6" xml:space="preserve">
+    <value>-Delete unwanted pics easily while browsing pics</value>
   </data>
 </root>

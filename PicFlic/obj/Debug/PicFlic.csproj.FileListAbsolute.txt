@@ -273,3 +273,4 @@ G:\Wphone\Project\_project_dev\PicFlic\PicFlic\obj\Debug\fi-FI\PicFlic.resources
 G:\Wphone\Project\_project_dev\PicFlic\PicFlic\obj\Debug\PicFlic.dll
 G:\Wphone\Project\_project_dev\PicFlic\PicFlic\obj\Debug\PicFlic.pdb
 G:\Wphone\Project\_project_dev\PicFlic\PicFlic\obj\Debug\XapCacheFile.xml
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\obj\Debug\PicFlic.csprojResolveAssemblyReference.cache
