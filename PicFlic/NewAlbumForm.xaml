@@ -22,17 +22,18 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="{Binding AppResources.p2_2_txtBlock_Title, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="PicFlic" Style="{StaticResource PhoneTextNormalStyle}" FontFamily="Andalus" HorizontalAlignment="Left"/>
+            <TextBlock x:Name="AlbumList" Text="New Album Form" Margin="3,-7,5,0" Style="{StaticResource PhoneTextTitle1Style}" Height="60" FontSize="48" HorizontalAlignment="Center" RenderTransformOrigin="0.497,1.667" Width="460"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <TextBox HorizontalAlignment="Left" Height="72" Margin="138,101,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="315" Name="NewAlbumName"/>
-            <TextBlock HorizontalAlignment="Left" Margin="88,16,0,0" TextWrapping="Wrap" Text="{Binding AppResources.p2_2_txtBlock1, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top" Width="342"/>
-            <TextBlock HorizontalAlignment="Left" Margin="8,118,0,0" TextWrapping="Wrap" Text="{Binding AppResources.p2_2_txtBlock2, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top" Width="150" Height="35"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding AppResources.p2_2_txtBlock3, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top" Margin="18,206,0,0" Width="210"/>
+        <Grid x:Name="ContentPanel" Margin="9,115,15,14" Grid.RowSpan="2">
+            <TextBox HorizontalAlignment="Left" Height="72" Margin="3,104,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="445" Name="NewAlbumName"/>
+            <TextBlock HorizontalAlignment="Left" Margin="13,14,0,0" TextWrapping="Wrap" Text="{Binding AppResources.p2_2_txtBlock1, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top" Width="415" FontSize="30"/>
+            <TextBlock HorizontalAlignment="Left" Margin="15,84,0,0" TextWrapping="Wrap" Text="{Binding AppResources.p2_2_txtBlock2, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top" Width="150" Height="35"/>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding AppResources.p2_2_txtBlock3, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top" Margin="15,199,0,0" Width="210"/>
             <TextBox HorizontalAlignment="Left" Height="157" Margin="3,226,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="446" Name="NewAlbumDesc"/>
-            <Button Content="{Binding AppResources.p2_2_txtBlock_Submit, Source={StaticResource LocalizedStrings}}" HorizontalAlignment="Left" Margin="238,531,0,0" VerticalAlignment="Top" Width="171" Click="Submit_NewAlbumForm"/>
+            <Button Content="{Binding AppResources.p2_2_txtBlock_Submit, Source={StaticResource LocalizedStrings}}" HorizontalAlignment="Left" Margin="256,485,0,0" VerticalAlignment="Top" Width="171" Click="Submit_NewAlbumForm"/>
             <RadioButton Content="{Binding AppResources.p2_2_txtBlock_Private, Source={StaticResource LocalizedStrings}}" HorizontalAlignment="Left" Margin="15,396,0,0" VerticalAlignment="Top" GroupName="AlbumAccessType" IsChecked="True" Name="NewAlbumAccessType_private"/>
             <RadioButton Content="{Binding AppResources.p2_2_txtBlock_Public, Source={StaticResource LocalizedStrings}}" HorizontalAlignment="Left" Margin="238,398,0,0" VerticalAlignment="Top" GroupName="AlbumAccessType" Name="NewAlbumAccessType_public"/>
         </Grid>

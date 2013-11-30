@@ -61,7 +61,7 @@ namespace PicFlic {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SOURCE &amp; LICENSE:The maintenance of your pictures over the Free Google Cloud Service nicknamed Picasa would be very easy using the application. This app uses the free picasa api and abides to their normal usases terms &amp; conditions.
+        ///   Looks up a localized string similar to SOURCE &amp; LICENSE:The maintenance of your pictures over the Free Google Cloud Service nicknamed Picasa would be very easy using the application. This app uses the free picasa api and abides to their normal usages terms &amp; conditions.
         /// </summary>
         public static string p1_aboutApp {
             get {
@@ -106,7 +106,7 @@ namespace PicFlic {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to -Zoom &amp; pinch single picture view to enoy HD pics.
+        ///   Looks up a localized string similar to -Zoom &amp; pinch single picture view to enjoy HD pics.
         /// </summary>
         public static string p1_aboutApp5 {
             get {

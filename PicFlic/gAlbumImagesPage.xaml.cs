@@ -22,7 +22,8 @@ namespace PicFlic
         private GestureListener gestureListener;// GestureListener from ToolKit
         double initialScale = 1d;
         string img_href = string.Empty;
-
+        int isImageDeleted;
+   
         public gAlbumImagesPage()
         {
             InitializeComponent();
@@ -54,7 +55,7 @@ namespace PicFlic
         // Navigate from this page
         protected override void OnNavigatedFrom(System.Windows.Navigation.NavigationEventArgs e)
         {
-           
+            if (global.selectedAlbumIndex >= 0) GetImages(); 
         }
 
         // Drag is complete
@@ -98,14 +99,19 @@ namespace PicFlic
         // Image is loaded from Google
         void bitmapImage_Results(object sender, DownloadProgressEventArgs e)
         {
-            //MessageBox.Show("inside bitmapImage_DownloadProgress loop");
-
             // Disable LoadingListener for this image
             bitmapImage.DownloadProgress -= new EventHandler<DownloadProgressEventArgs>(bitmapImage_Results);
-            // Show image details in UI
-            ImageInfoTextBlock.Text = String.Format("Album {0} : Image {1} of {2}.", global.galbumlist[global.selectedAlbumIndex].title, (global.selectedImageIndex + 1), global.galbumImages.Count);
 
-            //img_href = global.galbumImages[global.selectedImageIndex].href;
+            // Show image details in UI
+            if (isImageDeleted == 1)//Check if coming after deleting the image
+            {
+                ImageInfoTextBlock.Text = String.Format("Album {0} : Image {1} of {2}.", global.galbumlist[global.selectedAlbumIndex].title, (global.selectedImageIndex + 1), (global.galbumImages.Count -1));
+                isImageDeleted = 0;
+            }
+            else
+            {
+                ImageInfoTextBlock.Text = String.Format("Album {0} : Image {1} of {2}.", global.galbumlist[global.selectedAlbumIndex].title, (global.selectedImageIndex + 1), global.galbumImages.Count);
+            }
         }
 
         private void OnPinchStarted(object s, PinchStartedGestureEventArgs e)
@@ -170,13 +176,8 @@ namespace PicFlic
                 if (e.Error != null)
                     MessageBox.Show(e.Error.Message);
                 else
-                    GetImages();//refresh thumbnail list
-                    //Image DELETED successfully
-                    MessageBox.Show(AppResources.p4_imgDeletedSuccess);
-                    
-                    global.selectedImageIndex++;
-                    //first if last is shown
-                    if (global.selectedImageIndex > (global.galbumImages.Count - 1)) global.selectedImageIndex = 0;
+                    if (global.selectedImageIndex > (global.galbumImages.Count - 2)) global.selectedImageIndex = 0;
+                    isImageDeleted = 1;
       
                     LoadImage();
             }
@@ -268,8 +269,7 @@ namespace PicFlic
                         // Add albumImage to albumImages Collection
                         global.galbumImages.Add(albumImage);
                     }
-                    // Add albumImages to AlbumImagesListBox
-                    //AlbumImagesListBox.ItemsSource = global.galbumImages;
+                    
                 }
             }
             catch (WebException)

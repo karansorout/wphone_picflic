@@ -177,3 +177,4 @@ G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\ob
 G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\obj\Release\PicFlic.pdb
 G:\Wphone\Project\_project_dev\PicFlic - Copy (attempt of pic delete)\PicFlic\obj\Release\XapCacheFile.xml
 G:\Wphone\Project\_project_dev\PicFlic\PicFlic\obj\Release\NewAlbumForm.g.cs
+G:\Wphone\Project\_project_dev\PicFlic\PicFlic\obj\Release\Page1.g.cs

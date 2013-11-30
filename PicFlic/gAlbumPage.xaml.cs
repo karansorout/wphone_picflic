@@ -22,7 +22,7 @@ namespace PicFlic
             InitializeComponent();
             
             //set page name, indicating current location
-            p3_albumimagespage_name.Text = String.Format("PicFlic>Albums>" + global.galbumlist[global.selectedAlbumIndex].title);
+            abbumPicsPageName.Text = String.Format("\"" + global.galbumlist[global.selectedAlbumIndex].title + "\" Pics");
         }
 
         // Navigate to this page

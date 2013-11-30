@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="p1_aboutApp" xml:space="preserve">
-    <value>SOURCE &amp; LICENSE:The maintenance of your pictures over the Free Google Cloud Service nicknamed Picasa would be very easy using the application. This app uses the free picasa api and abides to their normal usases terms &amp; conditions</value>
+    <value>SOURCE &amp; LICENSE:The maintenance of your pictures over the Free Google Cloud Service nicknamed Picasa would be very easy using the application. This app uses the free picasa api and abides to their normal usages terms &amp; conditions</value>
     <comment>msgBoxShow-aboutPage</comment>
   </data>
   <data name="p1_alreadyPinned" xml:space="preserve">
@@ -242,7 +242,7 @@
     <value>-Take a pic &amp; upload directly</value>
   </data>
   <data name="p1_aboutApp5" xml:space="preserve">
-    <value>-Zoom &amp; pinch single picture view to enoy HD pics</value>
+    <value>-Zoom &amp; pinch single picture view to enjoy HD pics</value>
   </data>
   <data name="p1_aboutApp6" xml:space="preserve">
     <value>-Delete unwanted pics easily while browsing pics</value>

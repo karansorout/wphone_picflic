@@ -25,13 +25,16 @@
         </Grid.RowDefinitions>
 
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="PicFlic &gt; Albums:" x:Name="p2_albumListPageName" Style="{StaticResource PhoneTextNormalStyle}" Height="33" RenderTransformOrigin="0.498,-0.061"/>
+        <StackPanel Grid.Row="0" Margin="12,17,0,52">
+
+            <TextBlock Text="PicFlic" x:Name="p2_albumListPageName" Style="{StaticResource PhoneTextNormalStyle}" Height="33" RenderTransformOrigin="0.498,-0.061" FontFamily="Andalus" Margin="13,0,12,0"/>
+            <TextBlock x:Name="AlbumList" Text="Picasa Albums" Margin="3,-7,5,0" Style="{StaticResource PhoneTextTitle1Style}" Height="60" FontSize="48" HorizontalAlignment="Center" RenderTransformOrigin="0.497,1.667" Width="460"/>
+
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-           <ListBox x:Name="AlbumsListBox" 
+        <Grid x:Name="ContentPanel" Margin="12,120,12,0" Grid.RowSpan="2">
+            <ListBox x:Name="AlbumsListBox" 
                      toolkit:TiltEffect.IsTiltEnabled="True"
                      SelectionChanged="AlbumsListBox_SelectionChanged" Margin="-12,-8,-12,-4">
                 <ListBox.ItemsPanel>
@@ -66,7 +69,7 @@
                 <shell:ApplicationBarMenuItem Text="Create New Album" Click="p2_NewAlbumForm"/>
                 <shell:ApplicationBarMenuItem Text="Logout" Click="Logout_Click"/>
                 <shell:ApplicationBarMenuItem x:Name="AboutPicFlic" Text="About PicFlic" IsEnabled="True" Click="AboutPicFlic_Click"/>
-                <shell:ApplicationBarMenuItem Text="Pin To Start" Click="PinToStart_Click"/>
+                <!--<shell:ApplicationBarMenuItem Text="Pin To Start" Click="PinToStart_Click"/>-->
             </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>

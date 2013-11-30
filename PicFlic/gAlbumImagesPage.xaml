@@ -27,7 +27,7 @@
         <StackPanel Grid.Row="0" Margin="12,17,0,28"/>
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Margin="5,-25,5,-24" Grid.RowSpan="2">
+        <Grid x:Name="ContentPanel" Margin="5,5,5,1" Grid.RowSpan="2">
             <Image x:Name="bitmapimage" HorizontalAlignment="Center" VerticalAlignment="Center" >
                 <toolkit:GestureService.GestureListener>
                     <toolkit:GestureListener

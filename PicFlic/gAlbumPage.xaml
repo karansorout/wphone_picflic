@@ -25,18 +25,24 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="10,3,2,42">
-            <TextBlock Text="PicFlic" Name="p3_albumimagespage_name" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="PicFlic" Name="albumPicsAppName" Style="{StaticResource PhoneTextNormalStyle}" FontFamily="Andalus"/>
+            <TextBlock x:Name="abbumPicsPageName" Text="Albums Pics" Margin="-5,-7,3,0" Style="{StaticResource PhoneTextTitle1Style}" Height="60" FontSize="48" HorizontalAlignment="Center" RenderTransformOrigin="0.497,1.667" Width="470" VerticalAlignment="Center"/>
+
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Margin="12,50,12,0" Grid.RowSpan="2">
+        <Grid x:Name="ContentPanel" Margin="12,80,12,0" Grid.RowSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
             <!--<helpers:ProgressBarWithText 
                 Text="Loading..." Foreground="White" 
                 ShowProgress="{Binding ElementName=albumPage, Path=ShowProgress}" 
                 />-->
             <ListBox x:Name="AlbumImagesListBox" 
                      toolkit:TiltEffect.IsTiltEnabled="True"
-           SelectionChanged="AlbumImagesListBox_SelectionChanged" Margin="-12,-10,-12,1">
+           SelectionChanged="AlbumImagesListBox_SelectionChanged" Margin="-7,15,-7,1" Grid.ColumnSpan="2">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <toolkit:WrapPanel 

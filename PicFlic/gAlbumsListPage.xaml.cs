@@ -22,7 +22,7 @@ namespace PicFlic
     {
         private static App global = App.Current as App;
         private IsolatedStorageSettings applicationStorage;
-        
+ 
         public gAlbumsListPage()
         {
             InitializeComponent();
@@ -105,7 +105,7 @@ namespace PicFlic
                 }
                 //Authentication failed, please Check your Email and Password
                 MessageBox.Show(AppResources.p1_authFailed);
-            }
+             }
             catch (WebException)
             {
                 //Unable to authrize from google, excetion=
@@ -256,28 +256,28 @@ namespace PicFlic
         }
 
         //Pin to start / live tile handler
-        private void PinToStart_Click(object sender, EventArgs e)
-        {
-            StandardTileData standardTileData = new StandardTileData();
-            standardTileData.BackgroundImage = new Uri("/Images/background.png", UriKind.Relative);
-            standardTileData.Title = "*****PicFlic*****";
-            standardTileData.Count = 0;
-            standardTileData.BackTitle = "Flick your picasa images";
-            standardTileData.BackContent = "";
-            standardTileData.BackBackgroundImage = new Uri("/Images/background2.png", UriKind.Relative);
+        //private void PinToStart_Click(object sender, EventArgs e)
+        //{
+        //    StandardTileData standardTileData = new StandardTileData();
+        //    standardTileData.BackgroundImage = new Uri("/Images/background.png", UriKind.Relative);
+        //    standardTileData.Title = "*****PicFlic*****";
+        //    standardTileData.Count = 0;
+        //    standardTileData.BackTitle = "Flick your picasa images";
+        //    standardTileData.BackContent = "";
+        //    standardTileData.BackBackgroundImage = new Uri("/Images/background2.png", UriKind.Relative);
 
-            // Check if app is already pinned
-            ShellTile tiletopin = ShellTile.ActiveTiles.FirstOrDefault(x => x.NavigationUri.ToString().Contains("gAlbumListPage.xaml"));
-            if (tiletopin == null)
-            {
-                ShellTile.Create(new Uri("/MainPage.xaml", UriKind.Relative), standardTileData);//home page
-            }
-            else
-            {
-                //PicFlic is already Pinned
-                MessageBox.Show(AppResources.p1_alreadyPinned);
-            }
-        }
+        //    // Check if app is already pinned
+        //    ShellTile tiletopin = ShellTile.ActiveTiles.FirstOrDefault(x => x.NavigationUri.ToString().Contains("gAlbumListPage.xaml"));
+        //    if (tiletopin == null)
+        //    {
+        //        ShellTile.Create(new Uri("/MainPage.xaml", UriKind.Relative), standardTileData);//home page
+        //    }
+        //    else
+        //    {
+        //        //PicFlic is already Pinned
+        //        MessageBox.Show(AppResources.p1_alreadyPinned);
+        //    }
+        //}
 
     }//app page    
 }//namespace
